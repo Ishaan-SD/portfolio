@@ -44,7 +44,7 @@ const stats: StatItem[] = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden bg-zinc-50/50 dark:bg-zinc-950/20 border-y border-card-border/40">
+    <section id="about" className="py-24 relative overflow-hidden bg-zinc-50/50 dark:bg-zinc-950/20">
       {/* Background decoration */}
       <div className="absolute right-0 bottom-0 w-96 h-96 rounded-full bg-brand-500/5 blur-[100px] pointer-events-none" />
 

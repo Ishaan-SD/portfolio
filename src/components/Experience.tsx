@@ -53,7 +53,7 @@ const history: Role[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-24 relative overflow-hidden bg-zinc-100/30 dark:bg-black/40 border-t border-card-border/40">
+    <section id="experience" className="py-24 relative overflow-hidden bg-zinc-100/30 dark:bg-black/40">
       {/* Background glowing elements */}
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-brand-500/5 blur-[100px] pointer-events-none" />
 
