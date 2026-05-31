@@ -127,7 +127,7 @@ export default function Hero() {
             </a>
             <div className="relative group/btn w-full sm:w-auto">
               {/* Glowing Background layer */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-full blur-md opacity-60 group-hover/btn:opacity-90 group-hover/btn:blur-lg transition-all duration-300 animate-fluid-gradient bg-[length:200%_auto]" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-full blur-md opacity-35 group-hover/btn:opacity-60 transition-all duration-300 animate-fluid-gradient bg-[length:200%_auto]" />
               
               {/* Actual Button */}
               <a
