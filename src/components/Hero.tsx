@@ -127,13 +127,13 @@ export default function Hero() {
             </a>
             <div className="relative group/btn w-full sm:w-auto">
               {/* Glowing Background layer */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 via-purple-500 to-pink-500 rounded-full blur-md opacity-60 group-hover/btn:opacity-90 group-hover/btn:blur-lg transition-all duration-300 animate-fluid-gradient bg-[length:200%_auto]" />
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 via-yellow-400 to-orange-500 rounded-full blur-md opacity-60 group-hover/btn:opacity-90 group-hover/btn:blur-lg transition-all duration-300 animate-fluid-gradient bg-[length:200%_auto]" />
               
               {/* Actual Button */}
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, "contact")}
-                className="relative flex items-center justify-center gap-2 w-full sm:w-auto h-13 px-8 rounded-full font-bold bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 hover:from-brand-500 hover:via-purple-500 hover:to-pink-500 text-white transition-all duration-300 cursor-pointer animate-fluid-gradient bg-[length:200%_auto]"
+                className="relative flex items-center justify-center gap-2 w-full sm:w-auto h-13 px-8 rounded-full font-bold bg-gradient-to-r from-amber-600 via-yellow-500 to-orange-600 hover:from-amber-500 hover:via-yellow-400 hover:to-orange-500 text-white transition-all duration-300 cursor-pointer animate-fluid-gradient bg-[length:200%_auto] shadow-md"
               >
                 Let&apos;s Connect
               </a>

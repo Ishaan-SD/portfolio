@@ -14,7 +14,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-glow: glow 3s ease-in-out infinite;
   --animate-grid-fade: grid-fade 20s linear infinite;
-  --animate-fluid-gradient: fluid-gradient 6s ease infinite;
+  --animate-fluid-gradient: fluid-gradient 2s ease infinite;
 
   @keyframes typing {
     0%, 100% { border-color: transparent }
