@@ -187,19 +187,19 @@ export default function Skills() {
                 </div>
 
                 {/* Level indicators */}
-                <div className="flex flex-col gap-1.5 w-full mt-2">
+                <div className="flex flex-col gap-2.5 w-full mt-2">
                   <div className="flex items-center justify-between text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
                     <span>Proficiency</span>
-                    <span className="text-brand-500">{skill.level * 20}%</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-amber-500 font-extrabold">{skill.level * 20}%</span>
                   </div>
                   <div className="flex gap-1.5 items-center w-full">
                     {Array.from({ length: 5 }).map((_, levelIdx) => (
                       <div
                         key={levelIdx}
-                        className={`h-1.5 flex-1 rounded-full transition-all duration-500 ${
+                        className={`h-1.5 flex-1 rounded-full overflow-hidden transition-all duration-500 ${
                           levelIdx < skill.level
-                            ? "bg-brand-500 scale-x-100 origin-left"
-                            : "bg-zinc-200 dark:bg-zinc-800"
+                            ? "bg-gradient-to-r from-violet-600 via-pink-500 via-amber-400 to-emerald-400 animate-fluid-gradient-slow bg-[length:200%_auto]"
+                            : "bg-zinc-200 dark:bg-zinc-800/80"
                         }`}
                         style={{
                           transitionDelay: `${levelIdx * 50}ms`
