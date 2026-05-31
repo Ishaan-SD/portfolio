@@ -116,22 +116,28 @@ export default function Hero() {
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mt-4">
             <a
               href="#projects"
               onClick={(e) => scrollToSection(e, "projects")}
-              className="flex items-center justify-center gap-2 h-13 px-8 rounded-full font-bold bg-brand-600 hover:bg-brand-700 text-white shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all duration-300 group cursor-pointer"
+              className="flex items-center justify-center gap-2 w-full sm:w-auto h-13 px-8 rounded-full font-bold bg-brand-600 hover:bg-brand-700 text-white shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 transition-all duration-300 group cursor-pointer"
             >
               Explore My Work
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, "contact")}
-              className="flex items-center justify-center gap-2 h-13 px-8 rounded-full font-bold border border-card-border hover:bg-black/5 dark:hover:bg-white/5 text-foreground transition-all duration-300 cursor-pointer"
-            >
-              Let&apos;s Connect
-            </a>
+            <div className="relative group/btn w-full sm:w-auto">
+              {/* Glowing Background layer */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-brand-500 via-purple-500 to-pink-500 rounded-full blur-md opacity-60 group-hover/btn:opacity-90 group-hover/btn:blur-lg transition-all duration-300" />
+              
+              {/* Actual Button */}
+              <a
+                href="#contact"
+                onClick={(e) => scrollToSection(e, "contact")}
+                className="relative flex items-center justify-center gap-2 w-full sm:w-auto h-13 px-8 rounded-full font-bold bg-gradient-to-r from-brand-600 via-purple-600 to-pink-600 hover:from-brand-500 hover:via-purple-500 hover:to-pink-500 text-white transition-all duration-300 cursor-pointer"
+              >
+                Let&apos;s Connect
+              </a>
+            </div>
           </div>
         </div>
 
