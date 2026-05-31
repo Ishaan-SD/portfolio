@@ -118,7 +118,7 @@ export default function Navbar() {
             <Cpu className="w-5 h-5 text-brand-500" />
           </div>
           <span>
-            Alex<span className="text-brand-500 font-semibold">.dev</span>
+            Ishaan<span className="text-brand-500 font-semibold">.dev</span>
           </span>
         </a>
 

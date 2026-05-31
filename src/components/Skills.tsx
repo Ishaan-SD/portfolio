@@ -5,7 +5,7 @@ import { Code2, Layout, Server, Cpu, Database, Smartphone, GitBranch, ShieldChec
 
 interface Skill {
   name: string;
-  category: "Frontend" | "Backend" | "Tools & Systems";
+  category: "Languages & Databases" | "Big Data & DevOps" | "Machine Learning & AI";
   icon: React.ComponentType<{ className?: string }>;
   level: number; // out of 5
   color: string;
@@ -13,92 +13,108 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-  // Frontend
+  // Machine Learning & AI
   {
-    name: "React / Next.js",
-    category: "Frontend",
-    icon: Layout,
-    level: 5,
-    color: "text-sky-400 bg-sky-500/10 border-sky-500/20",
-    glowClass: "group-hover:border-sky-500/40 group-hover:shadow-sky-500/10",
-  },
-  {
-    name: "TypeScript",
-    category: "Frontend",
-    icon: Code2,
-    level: 5,
-    color: "text-blue-500 bg-blue-500/10 border-blue-500/20",
-    glowClass: "group-hover:border-blue-500/40 group-hover:shadow-blue-500/10",
-  },
-  {
-    name: "Tailwind CSS v4",
-    category: "Frontend",
-    icon: Layout,
-    level: 5,
-    color: "text-teal-400 bg-teal-500/10 border-teal-500/20",
-    glowClass: "group-hover:border-teal-500/40 group-hover:shadow-teal-500/10",
-  },
-  {
-    name: "UI/UX Prototyping",
-    category: "Frontend",
-    icon: Smartphone,
-    level: 4,
-    color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
-    glowClass: "group-hover:border-pink-500/40 group-hover:shadow-pink-500/10",
-  },
-  // Backend
-  {
-    name: "Node.js / Express",
-    category: "Backend",
-    icon: Server,
-    level: 4,
-    color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
-    glowClass: "group-hover:border-emerald-500/40 group-hover:shadow-emerald-500/10",
-  },
-  {
-    name: "PostgreSQL / Prisma",
-    category: "Backend",
-    icon: Database,
-    level: 4,
-    color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
-    glowClass: "group-hover:border-indigo-500/40 group-hover:shadow-indigo-500/10",
-  },
-  {
-    name: "GraphQL / APIs",
-    category: "Backend",
+    name: "PyTorch & TensorFlow",
+    category: "Machine Learning & AI",
     icon: Cpu,
-    level: 4,
-    color: "text-fuchsia-500 bg-fuchsia-500/10 border-fuchsia-500/20",
-    glowClass: "group-hover:border-fuchsia-500/40 group-hover:shadow-fuchsia-500/10",
-  },
-  // Tools & Systems
-  {
-    name: "Git / CI/CD",
-    category: "Tools & Systems",
-    icon: GitBranch,
     level: 5,
     color: "text-orange-500 bg-orange-500/10 border-orange-500/20",
     glowClass: "group-hover:border-orange-500/40 group-hover:shadow-orange-500/10",
   },
   {
-    name: "Docker / AWS",
-    category: "Tools & Systems",
+    name: "Transformers & NLP",
+    category: "Machine Learning & AI",
+    icon: ShieldCheck,
+    level: 4,
+    color: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
+    glowClass: "group-hover:border-yellow-500/40 group-hover:shadow-yellow-500/10",
+  },
+  {
+    name: "Scikit-Learn",
+    category: "Machine Learning & AI",
+    icon: Cpu,
+    level: 5,
+    color: "text-blue-500 bg-blue-500/10 border-blue-500/20",
+    glowClass: "group-hover:border-blue-500/40 group-hover:shadow-blue-500/10",
+  },
+  {
+    name: "Computer Vision",
+    category: "Machine Learning & AI",
+    icon: Smartphone,
+    level: 4,
+    color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
+    glowClass: "group-hover:border-pink-500/40 group-hover:shadow-pink-500/10",
+  },
+  // Big Data & DevOps
+  {
+    name: "Apache Spark & Hadoop",
+    category: "Big Data & DevOps",
+    icon: Server,
+    level: 5,
+    color: "text-red-500 bg-red-500/10 border-red-500/20",
+    glowClass: "group-hover:border-red-500/40 group-hover:shadow-red-500/10",
+  },
+  {
+    name: "Apache Kafka",
+    category: "Big Data & DevOps",
+    icon: GitBranch,
+    level: 4,
+    color: "text-zinc-600 bg-zinc-500/10 border-zinc-500/20",
+    glowClass: "group-hover:border-zinc-500/40 group-hover:shadow-zinc-500/10",
+  },
+  {
+    name: "AWS & Linux",
+    category: "Big Data & DevOps",
     icon: Cpu,
     level: 4,
+    color: "text-amber-500 bg-amber-500/10 border-amber-500/20",
+    glowClass: "group-hover:border-amber-500/40 group-hover:shadow-amber-500/10",
+  },
+  {
+    name: "Airflow & Docker",
+    category: "Big Data & DevOps",
+    icon: Layout,
+    level: 4,
+    color: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+    glowClass: "group-hover:border-sky-500/40 group-hover:shadow-sky-500/10",
+  },
+  // Languages & Databases
+  {
+    name: "Python & SQL",
+    category: "Languages & Databases",
+    icon: Code2,
+    level: 5,
     color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
     glowClass: "group-hover:border-cyan-500/40 group-hover:shadow-cyan-500/10",
   },
   {
-    name: "Vercel / Netlify",
-    category: "Tools & Systems",
-    icon: ShieldCheck,
+    name: "Java, C/C++ & R",
+    category: "Languages & Databases",
+    icon: Code2,
+    level: 4,
+    color: "text-red-500 bg-red-500/10 border-red-500/20",
+    glowClass: "group-hover:border-red-500/40 group-hover:shadow-red-500/10",
+  },
+  {
+    name: "MySQL & NoSQL DBs",
+    category: "Languages & Databases",
+    icon: Database,
     level: 5,
-    color: "text-purple-500 bg-purple-500/10 border-purple-500/20",
-    glowClass: "group-hover:border-purple-500/40 group-hover:shadow-purple-500/10",
+    color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+    glowClass: "group-hover:border-emerald-500/40 group-hover:shadow-emerald-500/10",
+  },
+  {
+    name: "Streamlit & Tableau",
+    category: "Languages & Databases",
+    icon: Layout,
+    level: 4,
+    color: "text-fuchsia-500 bg-fuchsia-500/10 border-fuchsia-500/20",
+    glowClass: "group-hover:border-fuchsia-500/40 group-hover:shadow-fuchsia-500/10",
   },
 ];
 
-type CategoryFilter = "All" | "Frontend" | "Backend" | "Tools & Systems";
+type CategoryFilter = "All" | "Languages & Databases" | "Big Data & DevOps" | "Machine Learning & AI";
 
 export default function Skills() {
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>("All");
@@ -107,7 +123,7 @@ export default function Skills() {
     (skill) => activeFilter === "All" || skill.category === activeFilter
   );
 
-  const filterOptions: CategoryFilter[] = ["All", "Frontend", "Backend", "Tools & Systems"];
+  const filterOptions: CategoryFilter[] = ["All", "Languages & Databases", "Big Data & DevOps", "Machine Learning & AI"];
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden bg-zinc-100/30 dark:bg-black/40">
@@ -125,7 +141,7 @@ export default function Skills() {
             My Tech Ecosystem
           </h2>
           <p className="max-w-xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            A curated selection of core languages, systems, and tools I command to craft premium grade digital applications.
+            A curated selection of core languages, distributed processing frameworks, and ML/AI toolsets I leverage to engineer robust intelligence systems.
           </p>
         </div>
 

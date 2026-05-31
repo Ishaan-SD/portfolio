@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Briefcase, FolderGit, Flame, Users, Sparkles } from "lucide-react";
+import { Briefcase, FolderGit, Flame, Users, Sparkles, BookOpen } from "lucide-react";
 
 interface StatItem {
   icon: React.ComponentType<{ className?: string }>;
@@ -14,30 +14,30 @@ interface StatItem {
 const stats: StatItem[] = [
   {
     icon: Briefcase,
-    value: "4+ Years",
+    value: "2+ Years",
     label: "Professional Exp.",
-    description: "Building production web apps and digital assets.",
+    description: "Scripted complex survey platforms and engineered data systems at IPSOS.",
     glowColor: "group-hover:border-violet-500/30 group-hover:shadow-violet-500/10",
   },
   {
-    icon: FolderGit,
-    value: "50+",
-    label: "Projects Completed",
-    description: "From lightweight SaaS products to Web3 protocols.",
+    icon: BookOpen,
+    value: "BE + PGD",
+    label: "Academic Focus",
+    description: "Computer Engineering (Mumbai Univ) & Big Data Analytics (CDAC Sunbeam).",
     glowColor: "group-hover:border-pink-500/30 group-hover:shadow-pink-500/10",
   },
   {
     icon: Flame,
-    value: "1.2k+",
-    label: "GitHub Commits",
-    description: "Highly active development cycle and clean coding style.",
+    value: "72% NLP",
+    label: "ML Model Accuracy",
+    description: "Empathetic emotional support chatbot fine-tuned on 10 core emotions.",
     glowColor: "group-hover:border-amber-500/30 group-hover:shadow-amber-500/10",
   },
   {
     icon: Users,
-    value: "99%",
-    label: "Client Satisfaction",
-    description: "High-grade feedback and reliable product delivery.",
+    value: "Real-Time",
+    label: "Data Ingestion",
+    description: "Ingesting and streaming human activity sensor streams using Kafka & Spark.",
     glowColor: "group-hover:border-emerald-500/30 group-hover:shadow-emerald-500/10",
   },
 ];
@@ -59,18 +59,18 @@ export default function About() {
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
-              Bridging the gap between spectacular design and robust engineering
+              Designing pipelines that ingest billions of events & training models that understand human context
             </h2>
             
             <div className="space-y-4 text-base sm:text-lg text-zinc-700 dark:text-zinc-400 leading-relaxed">
               <p>
-                I am a designer-minded developer who believes software should not only work flawlessly under the hood, but also feel incredibly refined and delightful to use. 
+                I am a Big Data and Machine Learning Engineer who believes data architectures should not only be highly scalable and robust under heavy throughput, but also serve to drive elegant, intelligent user experiences.
               </p>
               <p>
-                My focus lies in building high-fidelity user experiences using React, Next.js, and modern CSS/Tailwind engines. I specialize in crafting interactive applications, optimized static assets, custom components, and highly structured architectures.
+                My expertise spans building distributed processing pipelines using Apache Spark, Kafka, and Delta Lake, and training production-grade Deep Learning models with PyTorch and Hugging Face Transformers. I am passionate about bridging the gap between raw data streams and predictive products.
               </p>
               <p>
-                Whether I&apos;m writing responsive frontend layouts or architecting serverless API models, I maintain a strict standard of pixel-perfect precision, SEO accessibility, and code readability.
+                Whether I am automating workflows using Apache Airflow, containerizing complex multi-node environments in Docker, or developing interactive user layers using Streamlit and Gemini API integrations, I strive for high performance, accuracy, and clean code architecture.
               </p>
             </div>
           </div>

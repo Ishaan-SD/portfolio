@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Alex Rivers | Creative Developer & Full-Stack Engineer",
-  description: "Personal portfolio showcasing high-end, premium web applications, bespoke UI designs, and interactive digital experiences.",
-  keywords: ["Creative Developer", "Full-Stack Engineer", "React Developer", "Next.js Portfolio", "UI/UX Designer", "High-End Web Design"],
+  title: "Ishaan Doddamani | Big Data & Machine Learning Engineer",
+  description: "Personal portfolio showcasing high-throughput real-time data pipelines, distributed processing engines, NLP, and deep learning engineering solutions.",
+  keywords: ["Big Data Engineer", "Machine Learning Engineer", "Apache Spark", "Apache Kafka", "Data Pipeline", "NLP", "PyTorch", "Airflow", "Docker", "Ishaan Doddamani"],
 };
 
 export default function RootLayout({

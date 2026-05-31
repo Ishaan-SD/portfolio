@@ -13,7 +13,7 @@ const GithubIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 interface Project {
   title: string;
-  category: "Full-Stack" | "Web3" | "Creative UI";
+  category: "Machine Learning & NLP" | "Big Data & Pipelines" | "Computer Vision";
   description: string;
   image: string;
   tags: string[];
@@ -23,35 +23,35 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Apex SaaS Analytics Dashboard",
-    category: "Full-Stack",
-    description: "A gorgeous, high-fidelity business intelligence dashboard showcasing interactive real-time widgets, data pipeline visualizers, and customizable multi-tenant analytics models.",
-    image: "/dashboard_mockup.png",
-    tags: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS v4"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://vercel.com",
-  },
-  {
-    title: "Vanguard Immersive Creative Portal",
-    category: "Creative UI",
-    description: "A premium minimalist showcase platform for modern digital media, photos, and high-art portfolios. Built with high-end typography layout and fluid parallax scroll transitions.",
+    title: "Emotion Support Chatbot",
+    category: "Machine Learning & NLP",
+    description: "An empathetic emotional support chatbot featuring fine-tuned DistilBERT models achieving 72% accuracy on 10 distinct emotions. Deployed as a Streamlit client with Google Gemini API integrations for rich conversational context synthesis and favorites character voice mimicry.",
     image: "/creative_mockup.png",
-    tags: ["React 19", "Tailwind CSS v4", "Lucide Icons", "CSS Grid"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://vercel.com",
+    tags: ["Python", "DistilBERT", "Hugging Face", "Gemini API", "Streamlit", "Transformers"],
+    githubUrl: "https://github.com/Ishaan-SD",
+    liveUrl: "https://github.com/Ishaan-SD",
   },
   {
-    title: "Aetherium Web3 DEX Terminal",
-    category: "Web3",
-    description: "A futuristic decentralized trading interface detailing complex visual charts, live transactions monitoring, blockchain node integrations, and lightning-fast web socket connections.",
+    title: "Real-Time Human Activity Pipeline",
+    category: "Big Data & Pipelines",
+    description: "A highly scalable distributed data pipeline designed to ingest, process, and analyze real-time body motion activity streams. Utilizes Apache Kafka and Spark Streaming engines with automated Airflow workflow orchestrations and complete multi-container Docker deployments.",
+    image: "/dashboard_mockup.png",
+    tags: ["Python", "Apache Kafka", "Apache Spark", "Delta Lake", "Airflow", "Docker"],
+    githubUrl: "https://github.com/Ishaan-SD",
+    liveUrl: "https://github.com/Ishaan-SD",
+  },
+  {
+    title: "Facial Lie Detection CV Model",
+    category: "Computer Vision",
+    description: "An innovative computer vision system engineered for non-intrusive truth validation using facial micro-expressions. Built preprocessing pipelines, high-speed camera keypoint trackers, and feature extraction layers to classify minute facial muscle contractions.",
     image: "/web3_mockup.png",
-    tags: ["Next.js 16", "Web3.js", "GraphQL", "Tailwind v4", "WebSockets"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://vercel.com",
+    tags: ["Python", "OpenCV", "Scikit-Learn", "Computer Vision", "Feature Engineering"],
+    githubUrl: "https://github.com/Ishaan-SD",
+    liveUrl: "https://github.com/Ishaan-SD",
   },
 ];
 
-type ProjectCategory = "All" | "Full-Stack" | "Web3" | "Creative UI";
+type ProjectCategory = "All" | "Machine Learning & NLP" | "Big Data & Pipelines" | "Computer Vision";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("All");
@@ -60,7 +60,7 @@ export default function Projects() {
     (proj) => activeFilter === "All" || proj.category === activeFilter
   );
 
-  const filters: ProjectCategory[] = ["All", "Full-Stack", "Web3", "Creative UI"];
+  const filters: ProjectCategory[] = ["All", "Machine Learning & NLP", "Big Data & Pipelines", "Computer Vision"];
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden bg-zinc-50 dark:bg-zinc-950/20">
@@ -80,7 +80,7 @@ export default function Projects() {
             Featured Creations
           </h2>
           <p className="max-w-xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            A selective gallery of state-of-the-art web products showing comprehensive design execution, frontend aesthetics, and clean engineering.
+            A showcase of distributed pipeline developments, machine learning experimentation, and advanced computer vision modeling projects.
           </p>
         </div>
 

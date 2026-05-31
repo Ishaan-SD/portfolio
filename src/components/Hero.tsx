@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Code, Sparkles, Terminal } from "lucide-react";
 
-const words = ["intuitive", "responsive", "performant", "beautiful"];
+const words = ["distributed", "real-time", "intelligent", "scalable"];
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -100,7 +100,7 @@ export default function Hero() {
 
           {/* Headline Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-foreground">
-            I build interfaces
+            I build systems
             <br />
             that are{" "}
             <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-purple-500 to-pink-500 min-w-[200px]">
@@ -111,8 +111,8 @@ export default function Hero() {
 
           {/* Description Subtext */}
           <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-700 dark:text-zinc-400">
-            Hey, I&apos;m <strong className="text-foreground font-semibold">Alex Rivers</strong>. 
-            I&apos;m a creative engineer specializing in high-performance web architecture, premium user interfaces, and interactive details. I bring code and design together to craft spectacular digital experiences.
+            Hey, I&apos;m <strong className="text-foreground font-semibold">Ishaan Doddamani</strong>. 
+            I&apos;m a Big Data & Machine Learning Engineer specializing in high-throughput pipelines, distributed computing ecosystems, and applied Deep Learning. I bring scalable data architecture and predictive modeling together to drive intelligent applications.
           </p>
 
           {/* Action CTAs */}
@@ -162,7 +162,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-1.5 text-xs text-zinc-400 dark:text-zinc-500 font-mono">
                 <Terminal className="w-3.5 h-3.5" />
-                alex_profile.ts
+                ishaan_profile.ts
               </div>
               <div className="w-12" /> {/* spacer */}
             </div>
@@ -170,23 +170,23 @@ export default function Hero() {
             {/* Code Body */}
             <div className="flex-1 py-6 font-mono text-xs sm:text-sm leading-relaxed overflow-y-auto select-none">
               <p className="text-pink-500 dark:text-pink-400">
-                <span className="text-blue-500 dark:text-blue-400 font-medium">const</span> developer = {"{"}
+                <span className="text-blue-500 dark:text-blue-400 font-medium">const</span> engineer = {"{"}
               </p>
               <div className="pl-4">
                 <p>
-                  name: <span className="text-emerald-500 dark:text-emerald-400">{"\"Alex Rivers\""}</span>,
+                  name: <span className="text-emerald-500 dark:text-emerald-400">{"\"Ishaan Doddamani\""}</span>,
                 </p>
                 <p>
-                  role: <span className="text-emerald-500 dark:text-emerald-400">{"\"Full-Stack Creative\""}</span>,
+                  role: <span className="text-emerald-500 dark:text-emerald-400">{"\"Big Data & ML Specialist\""}</span>,
                 </p>
                 <p>
-                  skills: <span className="text-zinc-400">{"[\"React\", \"NextJS\", \"TypeScript\", \"Node\"]"}</span>,
+                  skills: <span className="text-zinc-400">{"[\"Spark\", \"Kafka\", \"PyTorch\", \"AWS\", \"Airflow\"]"}</span>,
                 </p>
                 <p>
-                  passion: <span className="text-emerald-500 dark:text-emerald-400">{"\"Crafting pixel-perfect designs\""}</span>,
+                  passion: <span className="text-emerald-500 dark:text-emerald-400">{"\"Building intelligent pipelines\""}</span>,
                 </p>
                 <p className="text-amber-500 dark:text-amber-400">
-                  loc: <span className="text-emerald-500 dark:text-emerald-400">{"\"San Francisco, CA\""}</span>
+                  loc: <span className="text-emerald-500 dark:text-emerald-400">{"\"Mumbai, India\""}</span>
                 </p>
               </div>
               <p className="text-pink-500 dark:text-pink-400">{"};"}</p>

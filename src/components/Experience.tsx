@@ -1,9 +1,10 @@
 "use client";
 
 import React from "react";
-import { Briefcase, Calendar, MapPin, Sparkles } from "lucide-react";
+import { Briefcase, Calendar, MapPin, Sparkles, GraduationCap } from "lucide-react";
 
-interface Role {
+interface TimelineItem {
+  type: "work" | "education";
   period: string;
   title: string;
   company: string;
@@ -12,42 +13,61 @@ interface Role {
   tags: string[];
 }
 
-const history: Role[] = [
+const history: TimelineItem[] = [
   {
-    period: "2024 - PRESENT",
-    title: "Senior Creative Engineer",
-    company: "Nexus Interactive Agency",
-    location: "San Francisco, CA (Remote)",
+    type: "education",
+    period: "2024 - 2025",
+    title: "PG Diploma in Big Data Analytics (DBDA)",
+    company: "Sunbeam CDAC (Pune)",
+    location: "Pune, Maharashtra",
     description: [
-      "Oversee architectural design and execution of production frontend applications using React 19 and Next.js.",
-      "Redesigned key client portals, improving Core Web Vitals performance benchmarks by over 40% and increasing accessibility compliance.",
-      "Engineered high-performance internal component libraries styled with modular Tailwind CSS tokens, drastically cutting project delivery times."
+      "Specialized in high-scale data analytics frameworks, distributed data systems, and database warehousing structures.",
+      "Graduated with an aggregate CPI score of 74%."
     ],
-    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "A11y"],
+    tags: ["Big Data", "Apache Spark", "Hadoop", "Hive", "Cassandra", "MySQL"],
   },
   {
-    period: "2022 - 2024",
-    title: "Full-Stack Software Engineer",
-    company: "Helix FinTech Group",
-    location: "New York, NY",
+    type: "work",
+    period: "DEC 2022 - FEB 2025",
+    title: "Executive Survey Programmer",
+    company: "IPSOS",
+    location: "Mumbai, India",
     description: [
-      "Engineered robust PostgreSQL data models and optimized query handling using Prisma ORM.",
-      "Collaborated on backend security architectures, token authentication systems, and serverless route handlers.",
-      "Configured AWS ECS container tasks and configured CI/CD build scripts for direct Vercel and AWS deployments."
+      "Developed and scripted complex multi-market consumer insights surveys using IBM SPSS Dimensions.",
+      "Queried, validated, and analyzed production data pipelines using SQL/DMQuery to generate key insights.",
+      "Worked closely with international project managers to design client-specific report formats and troubleshoot live system bugs."
     ],
-    tags: ["Node.js", "GraphQL", "PostgreSQL", "Prisma", "AWS", "Docker"],
+    tags: ["IBM SPSS Dimensions", "SQL", "DMQuery", "Data Validation", "Survey Engineering"],
   },
   {
-    period: "2020 - 2022",
-    title: "Frontend Web Developer",
-    company: "Prism Creative Studios",
-    location: "Los Angeles, CA",
+    type: "education",
+    period: "2018 - 2022",
+    title: "B.E. in Computer Engineering",
+    company: "Mumbai University (Bharathi Vidyapeeth)",
+    location: "Mumbai, Maharashtra",
     description: [
-      "Constructed immersive web experiences, portfolio visualizers, and marketing landing pages.",
-      "Translated high-fidelity Figma drawings into exact, fluidly responsive HTML structures and custom CSS designs.",
-      "Integrated search engine optimization best practices and descriptive metadata markup to double page visibility."
+      "Built a solid grounding in core computer science disciplines: Data Structures, Algorithms, Operating Systems, and DBMS.",
+      "Graduated with a cumulative GPA of 8.11 / 71.93%."
     ],
-    tags: ["JavaScript", "React", "CSS Modules", "HTML5", "SEO", "Figma"],
+    tags: ["Computer Engineering", "Data Structures", "Algorithms", "Databases", "C/C++", "Java"],
+  },
+  {
+    type: "education",
+    period: "2016 - 2018",
+    title: "HSC (Higher Secondary Certificate)",
+    company: "CKT College (Maharashtra Board)",
+    location: "Navi Mumbai, India",
+    description: ["Focused on Science stream (Physics, Chemistry, Mathematics, and Electronics). Secured 58%."],
+    tags: ["Physics", "Chemistry", "Mathematics", "Electronics"],
+  },
+  {
+    type: "education",
+    period: "2016",
+    title: "SSC (Secondary School Certificate)",
+    company: "Carmel Convent High School (Maharashtra Board)",
+    location: "Navi Mumbai, India",
+    description: ["Graduated with an aggregate school score of 83%."],
+    tags: ["General Sciences", "Mathematics", "Languages"],
   },
 ];
 
@@ -81,7 +101,11 @@ export default function Experience() {
               
               {/* Central Timeline Point Node */}
               <div className="absolute -left-[45px] md:-left-[53px] top-1.5 p-2 rounded-full bg-background border-2 border-brand-500 text-brand-500 shadow-md group-hover:scale-115 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
-                <Briefcase className="w-4 h-4" />
+                {role.type === "work" ? (
+                  <Briefcase className="w-4 h-4" />
+                ) : (
+                  <GraduationCap className="w-4 h-4" />
+                )}
               </div>
 
               {/* Timeline Card */}

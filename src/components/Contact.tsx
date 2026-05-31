@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, MapPin, CheckCircle2, Sparkles, Send, Loader2 } from "lucide-react";
+import { Mail, MapPin, Phone, CheckCircle2, Sparkles, Send, Loader2 } from "lucide-react";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -140,7 +140,17 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">Email Direct</span>
-                  <p className="text-sm font-bold text-foreground">alex.rivers@dev.com</p>
+                  <p className="text-sm font-bold text-foreground">ishaandoddamani@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4 p-4 rounded-2xl glassmorphism border border-card-border">
+                <div className="p-3 rounded-xl bg-brand-500/10 border border-brand-500/10 text-brand-500">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">Mobile Number</span>
+                  <p className="text-sm font-bold text-foreground">+91 8850356096</p>
                 </div>
               </div>
 
@@ -150,7 +160,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest">Base Location</span>
-                  <p className="text-sm font-bold text-foreground">San Francisco, CA</p>
+                  <p className="text-sm font-bold text-foreground">Navi Mumbai - 410218, India</p>
                 </div>
               </div>
             </div>
@@ -158,7 +168,7 @@ export default function Contact() {
             {/* Social Grids */}
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com"
+                href="https://github.com/Ishaan-SD"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl border border-card-border hover:border-brand-500/40 text-zinc-600 dark:text-zinc-300 hover:text-brand-500 transition-all duration-300 cursor-pointer"
@@ -167,22 +177,13 @@ export default function Contact() {
                 <GithubIcon className="w-5 h-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/ishaan-doddamani-31971a186/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-xl border border-card-border hover:border-brand-500/40 text-zinc-600 dark:text-zinc-300 hover:text-brand-500 transition-all duration-300 cursor-pointer"
                 aria-label="LinkedIn Profile"
               >
                 <LinkedinIcon className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-xl border border-card-border hover:border-brand-500/40 text-zinc-600 dark:text-zinc-300 hover:text-brand-500 transition-all duration-300 cursor-pointer"
-                aria-label="Twitter Profile"
-              >
-                <TwitterIcon className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -201,7 +202,7 @@ export default function Contact() {
                     Message Dispatched!
                   </h3>
                   <p className="max-w-md text-sm sm:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-                    Thank you, your connection request was sent successfully. Alex will be in touch with you very shortly!
+                    Thank you, your connection request was sent successfully. Ishaan will be in touch with you very shortly!
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}

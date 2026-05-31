@@ -66,7 +66,7 @@ export default function Footer() {
               <Cpu className="w-4 h-4" />
             </div>
             <span>
-              Alex<span className="text-brand-500 font-semibold">.dev</span>
+              Ishaan<span className="text-brand-500 font-semibold">.dev</span>
             </span>
           </a>
 
@@ -98,13 +98,13 @@ export default function Footer() {
         <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 pt-2">
           {/* Copyright description */}
           <p className="text-xs text-zinc-500 dark:text-zinc-400 font-mono">
-            &copy; {new Date().getFullYear()} Alex Rivers. All rights reserved. Built with Next.js & Tailwind CSS v4.
+            &copy; {new Date().getFullYear()} Ishaan Doddamani. All rights reserved. Built with Next.js & Tailwind CSS v4.
           </p>
 
           {/* Icon channels */}
           <div className="flex items-center gap-4 text-zinc-500 dark:text-zinc-400">
             <a
-              href="https://github.com"
+              href="https://github.com/Ishaan-SD"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -113,7 +113,7 @@ export default function Footer() {
               <GithubIcon className="w-4 h-4" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/ishaan-doddamani-31971a186/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -122,16 +122,7 @@ export default function Footer() {
               <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-foreground transition-colors"
-              aria-label="Twitter Profile"
-            >
-              <TwitterIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="mailto:alex.rivers@dev.com"
+              href="mailto:ishaandoddamani@gmail.com"
               className="hover:text-foreground transition-colors"
               aria-label="Email Direct"
             >
