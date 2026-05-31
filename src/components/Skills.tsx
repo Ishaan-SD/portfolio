@@ -1,0 +1,203 @@
+"use client";
+
+import React, { useState } from "react";
+import { Code2, Layout, Server, Cpu, Database, Smartphone, GitBranch, ShieldCheck } from "lucide-react";
+
+interface Skill {
+  name: string;
+  category: "Frontend" | "Backend" | "Tools & Systems";
+  icon: React.ComponentType<{ className?: string }>;
+  level: number; // out of 5
+  color: string;
+  glowClass: string;
+}
+
+const skills: Skill[] = [
+  // Frontend
+  {
+    name: "React / Next.js",
+    category: "Frontend",
+    icon: Layout,
+    level: 5,
+    color: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+    glowClass: "group-hover:border-sky-500/40 group-hover:shadow-sky-500/10",
+  },
+  {
+    name: "TypeScript",
+    category: "Frontend",
+    icon: Code2,
+    level: 5,
+    color: "text-blue-500 bg-blue-500/10 border-blue-500/20",
+    glowClass: "group-hover:border-blue-500/40 group-hover:shadow-blue-500/10",
+  },
+  {
+    name: "Tailwind CSS v4",
+    category: "Frontend",
+    icon: Layout,
+    level: 5,
+    color: "text-teal-400 bg-teal-500/10 border-teal-500/20",
+    glowClass: "group-hover:border-teal-500/40 group-hover:shadow-teal-500/10",
+  },
+  {
+    name: "UI/UX Prototyping",
+    category: "Frontend",
+    icon: Smartphone,
+    level: 4,
+    color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
+    glowClass: "group-hover:border-pink-500/40 group-hover:shadow-pink-500/10",
+  },
+  // Backend
+  {
+    name: "Node.js / Express",
+    category: "Backend",
+    icon: Server,
+    level: 4,
+    color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
+    glowClass: "group-hover:border-emerald-500/40 group-hover:shadow-emerald-500/10",
+  },
+  {
+    name: "PostgreSQL / Prisma",
+    category: "Backend",
+    icon: Database,
+    level: 4,
+    color: "text-indigo-400 bg-indigo-500/10 border-indigo-500/20",
+    glowClass: "group-hover:border-indigo-500/40 group-hover:shadow-indigo-500/10",
+  },
+  {
+    name: "GraphQL / APIs",
+    category: "Backend",
+    icon: Cpu,
+    level: 4,
+    color: "text-fuchsia-500 bg-fuchsia-500/10 border-fuchsia-500/20",
+    glowClass: "group-hover:border-fuchsia-500/40 group-hover:shadow-fuchsia-500/10",
+  },
+  // Tools & Systems
+  {
+    name: "Git / CI/CD",
+    category: "Tools & Systems",
+    icon: GitBranch,
+    level: 5,
+    color: "text-orange-500 bg-orange-500/10 border-orange-500/20",
+    glowClass: "group-hover:border-orange-500/40 group-hover:shadow-orange-500/10",
+  },
+  {
+    name: "Docker / AWS",
+    category: "Tools & Systems",
+    icon: Cpu,
+    level: 4,
+    color: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+    glowClass: "group-hover:border-cyan-500/40 group-hover:shadow-cyan-500/10",
+  },
+  {
+    name: "Vercel / Netlify",
+    category: "Tools & Systems",
+    icon: ShieldCheck,
+    level: 5,
+    color: "text-purple-500 bg-purple-500/10 border-purple-500/20",
+    glowClass: "group-hover:border-purple-500/40 group-hover:shadow-purple-500/10",
+  },
+];
+
+type CategoryFilter = "All" | "Frontend" | "Backend" | "Tools & Systems";
+
+export default function Skills() {
+  const [activeFilter, setActiveFilter] = useState<CategoryFilter>("All");
+
+  const filteredSkills = skills.filter(
+    (skill) => activeFilter === "All" || skill.category === activeFilter
+  );
+
+  const filterOptions: CategoryFilter[] = ["All", "Frontend", "Backend", "Tools & Systems"];
+
+  return (
+    <section id="skills" className="py-24 relative overflow-hidden bg-zinc-100/30 dark:bg-black/40">
+      {/* Decorative background lights */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-brand-500/5 blur-[90px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        
+        {/* Header */}
+        <div className="flex flex-col items-center text-center gap-4 mb-16">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
+            Technical Stack
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+            My Tech Ecosystem
+          </h2>
+          <p className="max-w-xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+            A curated selection of core languages, systems, and tools I command to craft premium grade digital applications.
+          </p>
+        </div>
+
+        {/* Filters bar */}
+        <div className="flex justify-center items-center gap-2 flex-wrap mb-12">
+          {filterOptions.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => setActiveFilter(opt)}
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
+                activeFilter === opt
+                  ? "bg-brand-600 text-white shadow-md shadow-brand-500/20"
+                  : "glassmorphism hover:bg-black/5 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300"
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-[280px]">
+          {filteredSkills.map((skill, index) => {
+            const Icon = skill.icon;
+            return (
+              <div
+                key={index}
+                className={`group relative p-5 rounded-2xl glassmorphism border border-card-border shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in ${skill.glowClass}`}
+              >
+                {/* Visual Icon Header */}
+                <div className="flex items-center gap-3.5 mb-4">
+                  <div className={`p-2.5 rounded-xl border flex items-center justify-center shrink-0 ${skill.color} group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-bold text-foreground">
+                      {skill.name}
+                    </h3>
+                    <span className="text-[10px] uppercase font-bold tracking-widest text-zinc-500 dark:text-zinc-400">
+                      {skill.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Level indicators */}
+                <div className="flex flex-col gap-1.5 w-full mt-2">
+                  <div className="flex items-center justify-between text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                    <span>Proficiency</span>
+                    <span className="text-brand-500">{skill.level * 20}%</span>
+                  </div>
+                  <div className="flex gap-1.5 items-center w-full">
+                    {Array.from({ length: 5 }).map((_, levelIdx) => (
+                      <div
+                        key={levelIdx}
+                        className={`h-1.5 flex-1 rounded-full transition-all duration-500 ${
+                          levelIdx < skill.level
+                            ? "bg-brand-500 scale-x-100 origin-left"
+                            : "bg-zinc-200 dark:bg-zinc-800"
+                        }`}
+                        style={{
+                          transitionDelay: `${levelIdx * 50}ms`
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+      </div>
+    </section>
+  );
+}
