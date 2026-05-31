@@ -14,6 +14,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-glow: glow 3s ease-in-out infinite;
   --animate-grid-fade: grid-fade 20s linear infinite;
+  --animate-fluid-gradient: fluid-gradient 6s ease infinite;
 
   @keyframes typing {
     0%, 100% { border-color: transparent }
@@ -26,6 +27,10 @@
   @keyframes glow {
     0%, 100% { box-shadow: 0 0 15px rgba(124, 58, 237, 0.2); border-color: rgba(124, 58, 237, 0.3); }
     50% { box-shadow: 0 0 25px rgba(124, 58, 237, 0.4); border-color: rgba(124, 58, 237, 0.6); }
+  }
+  @keyframes fluid-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 }
 
