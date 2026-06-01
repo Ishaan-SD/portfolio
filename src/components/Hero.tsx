@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, Code, Sparkles, Terminal } from "lucide-react";
 
-const words = ["distributed", "real-time", "intelligent", "scalable"];
+const words = ["distributed", "automated", "intelligent", "scalable"];
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
@@ -112,7 +112,7 @@ export default function Hero() {
           {/* Description Subtext */}
           <p className="max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-700 dark:text-zinc-400">
             Hey, I&apos;m <strong className="text-foreground font-semibold">Ishaan Doddamani</strong>. 
-            I&apos;m a Big Data & Machine Learning Engineer specializing in high-throughput pipelines, distributed computing ecosystems, and applied Deep Learning. I bring scalable data architecture and predictive modeling together to drive intelligent applications.
+            I&apos;m a Software Engineer specializing in AI automation, enterprise LLM applications (MCP), backend systems, and automated test pipelines. I design scalable solutions that combine robust data engineering with state-of-the-art intelligent automation.
           </p>
 
           {/* Action CTAs */}
@@ -177,16 +177,16 @@ export default function Hero() {
                   name: <span className="text-emerald-500 dark:text-emerald-400">{"\"Ishaan Doddamani\""}</span>,
                 </p>
                 <p>
-                  role: <span className="text-emerald-500 dark:text-emerald-400">{"\"Big Data & ML Specialist\""}</span>,
+                  role: <span className="text-emerald-500 dark:text-emerald-400">{"\"AI & Backend Engineer\""}</span>,
                 </p>
                 <p>
-                  skills: <span className="text-zinc-400">{"[\"Spark\", \"Kafka\", \"PyTorch\", \"AWS\", \"Airflow\"]"}</span>,
+                  skills: <span className="text-zinc-400">{"[\"MCP\", \"Python\", \"APIs\", \"Selenium\", \"Spark\", \"Docker\"]"}</span>,
                 </p>
                 <p>
-                  passion: <span className="text-emerald-500 dark:text-emerald-400">{"\"Building intelligent pipelines\""}</span>,
+                  passion: <span className="text-emerald-500 dark:text-emerald-400">{"\"Automating complex workflows\""}</span>,
                 </p>
                 <p className="text-amber-500 dark:text-amber-400">
-                  loc: <span className="text-emerald-500 dark:text-emerald-400">{"\"Mumbai, India\""}</span>
+                  loc: <span className="text-emerald-500 dark:text-emerald-400">{"\"Navi Mumbai, India\""}</span>
                 </p>
               </div>
               <p className="text-pink-500 dark:text-pink-400">{"};"}</p>

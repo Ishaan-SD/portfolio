@@ -14,9 +14,9 @@ interface StatItem {
 const stats: StatItem[] = [
   {
     icon: Briefcase,
-    value: "2+ Years",
+    value: "3+ Years",
     label: "Professional Exp.",
-    description: "Scripted complex survey platforms and engineered data systems at IPSOS.",
+    description: "Engineered Confluence chatbots, Selenium pipelines, and automated test environments.",
     glowColor: "group-hover:border-violet-500/30 group-hover:shadow-violet-500/10",
   },
   {
@@ -35,9 +35,9 @@ const stats: StatItem[] = [
   },
   {
     icon: Users,
-    value: "Real-Time",
-    label: "Data Ingestion",
-    description: "Ingesting and streaming human activity sensor streams using Kafka & Spark.",
+    value: "MCP & LLM",
+    label: "Enterprise AI",
+    description: "Designed access-controlled knowledge retrieval and intelligence pipelines.",
     glowColor: "group-hover:border-emerald-500/30 group-hover:shadow-emerald-500/10",
   },
 ];
@@ -59,18 +59,18 @@ export default function About() {
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
-              Designing pipelines that ingest billions of events & training models that understand human context
+              Orchestrating intelligent AI automation, scale backend workflows, and robust data systems
             </h2>
             
             <div className="space-y-4 text-base sm:text-lg text-zinc-700 dark:text-zinc-400 leading-relaxed">
               <p>
-                I am a Big Data and Machine Learning Engineer who believes data architectures should not only be highly scalable and robust under heavy throughput, but also serve to drive elegant, intelligent user experiences.
+                I am a Software Engineer specializing in AI Automation, LLM Applications, Backend Development, and Data Engineering. I believe automation architectures and data workflows should not only be highly scalable and robust, but also serve to drive elegant, intelligent enterprise solutions.
               </p>
               <p>
-                My expertise spans building distributed processing pipelines using Apache Spark, Kafka, and Delta Lake, and training production-grade Deep Learning models with PyTorch and Hugging Face Transformers. I am passionate about bridging the gap between raw data streams and predictive products.
+                My expertise spans building MCP-powered conversational chatbots, creating automated Selenium translation pipelines, automating JIRA/Codebeamer migration workflows, and scripting distributed data processing systems. I am passionate about bridging the gap between state-of-the-art AI capabilities and enterprise production environments.
               </p>
               <p>
-                Whether I am automating workflows using Apache Airflow, containerizing complex multi-node environments in Docker, or developing interactive user layers using Streamlit and Gemini API integrations, I strive for high performance, accuracy, and clean code architecture.
+                Whether I am fine-tuning transformer models like DistilBERT, building complex automation engines in Python, or designing large-scale test pipelines, I strive for high performance, accuracy, and clean code architecture.
               </p>
             </div>
           </div>

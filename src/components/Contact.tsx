@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, MapPin, Phone, CheckCircle2, Sparkles, Send, Loader2 } from "lucide-react";
+import { Mail, MapPin, Phone, CheckCircle2, Sparkles, Send, Loader2, AlertCircle } from "lucide-react";
+import { sendEmail } from "../app/actions";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -41,6 +42,7 @@ export default function Contact() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validate = (): boolean => {
     const tempErrors: FormErrors = {};
@@ -89,13 +91,21 @@ export default function Contact() {
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmitError(null);
 
-    // Mock API request network delay
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setValues({ name: "", email: "", message: "" });
+    try {
+      const result = await sendEmail(values);
+      if (result.success) {
+        setIsSubmitted(true);
+        setValues({ name: "", email: "", message: "" });
+      } else {
+        setSubmitError(result.error || "Failed to deliver message. Please try again.");
+      }
+    } catch (err) {
+      setSubmitError("A connection error occurred. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -285,6 +295,13 @@ export default function Contact() {
                       </span>
                     )}
                   </div>
+
+                  {submitError && (
+                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-500 flex items-start gap-2.5 text-xs sm:text-sm animate-fade-in font-medium">
+                      <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                      <span>{submitError}</span>
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <button

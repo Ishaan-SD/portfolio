@@ -15,40 +15,32 @@ interface Skill {
 const skills: Skill[] = [
   // Machine Learning & AI
   {
-    name: "PyTorch & TensorFlow",
+    name: "MCP & LLM Applications",
     category: "Machine Learning & AI",
     icon: Cpu,
+    level: 5,
+    color: "text-violet-500 bg-violet-500/10 border-violet-500/20",
+    glowClass: "group-hover:border-violet-500/40 group-hover:shadow-violet-500/10",
+  },
+  {
+    name: "Transformers & Gemini API",
+    category: "Machine Learning & AI",
+    icon: ShieldCheck,
     level: 5,
     color: "text-orange-500 bg-orange-500/10 border-orange-500/20",
     glowClass: "group-hover:border-orange-500/40 group-hover:shadow-orange-500/10",
   },
   {
-    name: "Transformers & NLP",
-    category: "Machine Learning & AI",
-    icon: ShieldCheck,
-    level: 4,
-    color: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
-    glowClass: "group-hover:border-yellow-500/40 group-hover:shadow-yellow-500/10",
-  },
-  {
-    name: "Scikit-Learn",
+    name: "DistilBERT & Prompt Eng.",
     category: "Machine Learning & AI",
     icon: Cpu,
-    level: 5,
-    color: "text-blue-500 bg-blue-500/10 border-blue-500/20",
-    glowClass: "group-hover:border-blue-500/40 group-hover:shadow-blue-500/10",
-  },
-  {
-    name: "Computer Vision",
-    category: "Machine Learning & AI",
-    icon: Smartphone,
     level: 4,
-    color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
-    glowClass: "group-hover:border-pink-500/40 group-hover:shadow-pink-500/10",
+    color: "text-amber-500 bg-amber-500/10 border-amber-500/20",
+    glowClass: "group-hover:border-amber-500/40 group-hover:shadow-amber-500/10",
   },
   // Big Data & DevOps
   {
-    name: "Apache Spark & Hadoop",
+    name: "Spark, Kafka & Hadoop",
     category: "Big Data & DevOps",
     icon: Server,
     level: 5,
@@ -56,25 +48,17 @@ const skills: Skill[] = [
     glowClass: "group-hover:border-red-500/40 group-hover:shadow-red-500/10",
   },
   {
-    name: "Apache Kafka",
+    name: "Airflow, Delta Lake & Hive",
     category: "Big Data & DevOps",
     icon: GitBranch,
     level: 4,
-    color: "text-zinc-600 bg-zinc-500/10 border-zinc-500/20",
+    color: "text-zinc-400 bg-zinc-400/10 border-zinc-400/20",
     glowClass: "group-hover:border-zinc-500/40 group-hover:shadow-zinc-500/10",
   },
   {
-    name: "AWS & Linux",
+    name: "AWS, Docker & Linux",
     category: "Big Data & DevOps",
     icon: Cpu,
-    level: 4,
-    color: "text-amber-500 bg-amber-500/10 border-amber-500/20",
-    glowClass: "group-hover:border-amber-500/40 group-hover:shadow-amber-500/10",
-  },
-  {
-    name: "Airflow & Docker",
-    category: "Big Data & DevOps",
-    icon: Layout,
     level: 4,
     color: "text-sky-400 bg-sky-500/10 border-sky-500/20",
     glowClass: "group-hover:border-sky-500/40 group-hover:shadow-sky-500/10",
@@ -93,11 +77,11 @@ const skills: Skill[] = [
     category: "Languages & Databases",
     icon: Code2,
     level: 4,
-    color: "text-red-500 bg-red-500/10 border-red-500/20",
-    glowClass: "group-hover:border-red-500/40 group-hover:shadow-red-500/10",
+    color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
+    glowClass: "group-hover:border-pink-500/40 group-hover:shadow-pink-500/10",
   },
   {
-    name: "MySQL & NoSQL DBs",
+    name: "MySQL, Mongo & NoSQL",
     category: "Languages & Databases",
     icon: Database,
     level: 5,
@@ -105,10 +89,18 @@ const skills: Skill[] = [
     glowClass: "group-hover:border-emerald-500/40 group-hover:shadow-emerald-500/10",
   },
   {
-    name: "Streamlit & Tableau",
+    name: "Selenium & APIs (Automation)",
     category: "Languages & Databases",
     icon: Layout,
-    level: 4,
+    level: 5,
+    color: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
+    glowClass: "group-hover:border-yellow-500/40 group-hover:shadow-yellow-500/10",
+  },
+  {
+    name: "Jira, Confluence & Streamlit",
+    category: "Languages & Databases",
+    icon: Layout,
+    level: 5,
     color: "text-fuchsia-500 bg-fuchsia-500/10 border-fuchsia-500/20",
     glowClass: "group-hover:border-fuchsia-500/40 group-hover:shadow-fuchsia-500/10",
   },
@@ -187,25 +179,22 @@ export default function Skills() {
                 </div>
 
                 {/* Level indicators */}
-                <div className="flex flex-col gap-2.5 w-full mt-2">
-                  <div className="flex items-center justify-between text-[10px] font-bold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">
+                <div className="flex flex-col gap-2.5 w-full mt-3">
+                  <div className="flex items-center justify-between text-[10px] font-bold text-zinc-500 dark:text-zinc-400 uppercase tracking-widest">
                     <span>Proficiency</span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-amber-500 font-extrabold">{skill.level * 20}%</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-amber-500 font-extrabold text-xs font-mono">{skill.level * 20}%</span>
                   </div>
-                  <div className="flex gap-1.5 items-center w-full">
-                    {Array.from({ length: 5 }).map((_, levelIdx) => (
-                      <div
-                        key={levelIdx}
-                        className={`h-1.5 flex-1 rounded-full overflow-hidden transition-all duration-500 ${
-                          levelIdx < skill.level
-                            ? "bg-gradient-to-r from-violet-600 via-pink-500 via-amber-400 to-emerald-400 animate-fluid-gradient-slow bg-[length:200%_auto]"
-                            : "bg-zinc-200 dark:bg-zinc-800/80"
-                        }`}
-                        style={{
-                          transitionDelay: `${levelIdx * 50}ms`
-                        }}
-                      />
-                    ))}
+                  {/* Sleek continuous glowing progress slider track */}
+                  <div className="h-2 w-full bg-zinc-200/80 dark:bg-zinc-900/60 rounded-full relative overflow-hidden border border-zinc-300/10 shadow-inner">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-violet-600 via-brand-500 to-emerald-400 transition-all duration-1000 ease-out relative"
+                      style={{
+                        width: `${skill.level * 20}%`,
+                      }}
+                    >
+                      {/* Animated neon leading glow edge */}
+                      <span className="absolute right-0 top-0 h-full w-3 bg-white/40 blur-[2px] rounded-full animate-pulse" />
+                    </div>
                   </div>
                 </div>
               </div>

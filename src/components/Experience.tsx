@@ -15,6 +15,22 @@ interface TimelineItem {
 
 const history: TimelineItem[] = [
   {
+    type: "work",
+    period: "SEP 2025 - PRESENT",
+    title: "Software Engineer",
+    company: "IAV India Tech Pvt Ltd",
+    location: "Pune, India",
+    description: [
+      "Built an MCP-powered Confluence Chatbot enabling enterprise knowledge retrieval from Confluence while enforcing user authorization and access-control policies.",
+      "Developed an Excel-to-JIRA migration automation tool using Python to convert large PO datasets into structured JIRA epics through preprocessing, filtering, and data mapping workflows.",
+      "Engineered a German-to-English Excel Translation Pipeline using Selenium automation and enterprise translation services while preserving spreadsheet formatting, signal names, variables, and domain-specific keywords using masking techniques and exception handling.",
+      "Automated Volkswagen Incident Handler testcase generation using Python, Pandas, configurable templates, placeholder-driven workflows, logging, and Codebeamer integration.",
+      "Engineered Volkswagen Data Manager Testcase Automation solutions involving ADAS systems, Linux environments, networking concepts, and HIL execution.",
+      "Designed automation approaches using Python and AI-driven workflows for intelligent testcase generation and automated execution on shared Berlin-based test rigs."
+    ],
+    tags: ["MCP", "LLM Applications", "Python", "Selenium", "Pandas", "Codebeamer", "Jira", "Confluence", "Linux", "Automotive Systems"],
+  },
+  {
     type: "education",
     period: "2024 - 2025",
     title: "PG Diploma in Big Data Analytics (DBDA)",

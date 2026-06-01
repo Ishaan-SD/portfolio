@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ishaan Doddamani | Big Data & Machine Learning Engineer",
-  description: "Personal portfolio showcasing high-throughput real-time data pipelines, distributed processing engines, NLP, and deep learning engineering solutions.",
-  keywords: ["Big Data Engineer", "Machine Learning Engineer", "Apache Spark", "Apache Kafka", "Data Pipeline", "NLP", "PyTorch", "Airflow", "Docker", "Ishaan Doddamani"],
+  title: "Ishaan Doddamani | Software Engineer | AI & Backend Specialist",
+  description: "Personal portfolio of Ishaan Doddamani showcasing AI automation, LLM applications (MCP), enterprise backend solutions, automated test pipelines, and high-throughput data engineering.",
+  keywords: ["Software Engineer", "AI Automation", "LLM Applications", "MCP", "Gemini API", "Backend Developer", "Data Engineering", "Apache Spark", "Apache Kafka", "Selenium Automation", "Ishaan Doddamani"],
 };
 
 export default function RootLayout({
