@@ -102,7 +102,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || mobileMenuOpen
-        ? "navbar-glass py-4 shadow-lg border-b border-card-border/40"
+        ? "navbar-glass py-4 shadow-lg"
         : "bg-transparent py-6"
         }`}
     >
