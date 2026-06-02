@@ -138,7 +138,7 @@ export default function Contact() {
                 Let&apos;s build something exceptional.
               </h3>
               <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-                I&apos;m always excited to collaborate on new digital tools, design structures, responsive layouts, or full-stack React systems. Send a message, and I&apos;ll get back to you within 24 hours.
+                I&apos;m always excited to collaborate on new backend architectures, automation pipelines, intelligent data workflows, or LLM-powered applications. Send a message, and I&apos;ll get back to you within 24 hours.
               </p>
             </div>
 

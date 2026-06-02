@@ -205,7 +205,7 @@ export default function Hero() {
                 <Code className="w-3.5 h-3.5 text-brand-500" />
                 <span>UTF-8</span>
               </div>
-              <span>TypeScript React</span>
+              <span>TypeScript</span>
             </div>
           </div>
         </div>
