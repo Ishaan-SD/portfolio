@@ -101,8 +101,8 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-zinc-50/95 dark:bg-black/95 backdrop-blur-md py-4 shadow-lg"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || mobileMenuOpen
+        ? "bg-zinc-50/95 dark:bg-black/95 backdrop-blur-md py-4 shadow-lg border-b border-card-border/40"
         : "bg-transparent py-6"
         }`}
     >
@@ -191,7 +191,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Panel */}
       {mobileMenuOpen && (
-        <div className="md:hidden glassmorphic border-t border-card-border absolute top-full left-0 right-0 py-6 px-6 flex flex-col gap-4 shadow-xl animate-slide-down">
+        <div className="md:hidden glassmorphism border-b border-card-border absolute top-full left-0 right-0 py-6 px-6 flex flex-col gap-4 shadow-xl animate-slide-down">
           {navItems.map((item) => (
             <a
               key={item.id}
