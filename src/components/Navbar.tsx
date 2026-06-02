@@ -102,7 +102,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || mobileMenuOpen
-        ? "bg-zinc-50/95 dark:bg-black/95 backdrop-blur-md py-4 shadow-lg border-b border-card-border/40"
+        ? "bg-zinc-50/75 dark:bg-black/75 backdrop-blur-2xl py-4 shadow-lg border-b border-card-border/40"
         : "bg-transparent py-6"
         }`}
     >

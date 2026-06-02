@@ -68,8 +68,8 @@ body {
 /* Glassmorphism utility */
 .glassmorphism {
   background: var(--card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   border: 1px solid var(--card-border);
 }
 
