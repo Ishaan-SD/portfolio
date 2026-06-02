@@ -18,7 +18,7 @@ const skills: Skill[] = [
     name: "MCP & LLM Applications",
     category: "Machine Learning & AI",
     icon: Cpu,
-    level: 5,
+    level: 4,
     color: "text-violet-500 bg-violet-500/10 border-violet-500/20",
     glowClass: "group-hover:border-violet-500/40 group-hover:shadow-violet-500/10",
   },
@@ -43,7 +43,7 @@ const skills: Skill[] = [
     name: "Spark, Kafka & Hadoop",
     category: "Big Data & DevOps",
     icon: Server,
-    level: 5,
+    level: 3,
     color: "text-red-500 bg-red-500/10 border-red-500/20",
     glowClass: "group-hover:border-red-500/40 group-hover:shadow-red-500/10",
   },
@@ -51,7 +51,7 @@ const skills: Skill[] = [
     name: "Airflow, Delta Lake & Hive",
     category: "Big Data & DevOps",
     icon: GitBranch,
-    level: 4,
+    level: 3,
     color: "text-zinc-400 bg-zinc-400/10 border-zinc-400/20",
     glowClass: "group-hover:border-zinc-500/40 group-hover:shadow-zinc-500/10",
   },
@@ -76,7 +76,7 @@ const skills: Skill[] = [
     name: "Java, C/C++ & R",
     category: "Languages & Databases",
     icon: Code2,
-    level: 4,
+    level: 3,
     color: "text-pink-500 bg-pink-500/10 border-pink-500/20",
     glowClass: "group-hover:border-pink-500/40 group-hover:shadow-pink-500/10",
   },
@@ -84,7 +84,7 @@ const skills: Skill[] = [
     name: "MySQL, Mongo & NoSQL",
     category: "Languages & Databases",
     icon: Database,
-    level: 5,
+    level: 4,
     color: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
     glowClass: "group-hover:border-emerald-500/40 group-hover:shadow-emerald-500/10",
   },
@@ -97,10 +97,10 @@ const skills: Skill[] = [
     glowClass: "group-hover:border-yellow-500/40 group-hover:shadow-yellow-500/10",
   },
   {
-    name: "Jira, Confluence & Streamlit",
+    name: "Jira, Confluence",
     category: "Languages & Databases",
     icon: Layout,
-    level: 5,
+    level: 4,
     color: "text-fuchsia-500 bg-fuchsia-500/10 border-fuchsia-500/20",
     glowClass: "group-hover:border-fuchsia-500/40 group-hover:shadow-fuchsia-500/10",
   },
@@ -123,7 +123,7 @@ export default function Skills() {
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-brand-500/5 blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4 mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
@@ -143,11 +143,10 @@ export default function Skills() {
             <button
               key={opt}
               onClick={() => setActiveFilter(opt)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                activeFilter === opt
+              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${activeFilter === opt
                   ? "bg-brand-600 text-white shadow-md shadow-brand-500/20"
                   : "glassmorphism hover:bg-black/5 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300"
-              }`}
+                }`}
             >
               {opt}
             </button>
@@ -187,7 +186,7 @@ export default function Skills() {
                   {/* Sleek continuous glowing progress slider track */}
                   <div className="h-2 w-full bg-zinc-200/80 dark:bg-zinc-900/60 rounded-full relative overflow-hidden border border-zinc-300/10 shadow-inner">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-violet-600 via-brand-500 to-emerald-400 transition-all duration-1000 ease-out relative"
+                      className="h-full rounded-full bg-gradient-to-r from-purple-600 via-fuchsia-500 to-amber-400 transition-all duration-1000 ease-out relative"
                       style={{
                         width: `${skill.level * 20}%`,
                       }}

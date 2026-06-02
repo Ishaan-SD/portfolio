@@ -28,11 +28,11 @@ const history: TimelineItem[] = [
       "Engineered Volkswagen Data Manager Testcase Automation solutions involving ADAS systems, Linux environments, networking concepts, and HIL execution.",
       "Designed automation approaches using Python and AI-driven workflows for intelligent testcase generation and automated execution on shared Berlin-based test rigs."
     ],
-    tags: ["MCP", "LLM Applications", "Python", "Selenium", "Pandas", "Codebeamer", "Jira", "Confluence", "Linux", "Automotive Systems"],
+    tags: ["Python", "Selenium", "Pandas", "MCP", "LLM Applications", "Linux", "Codebeamer", "Jira", "Confluence", "Automotive Systems"],
   },
   {
     type: "education",
-    period: "2024 - 2025",
+    period: "FEB 2025 - SEP 2025",
     title: "PG Diploma in Big Data Analytics (DBDA)",
     company: "Sunbeam CDAC (Pune)",
     location: "Pune, Maharashtra",
@@ -40,7 +40,7 @@ const history: TimelineItem[] = [
       "Specialized in high-scale data analytics frameworks, distributed data systems, and database warehousing structures.",
       "Graduated with an aggregate CPI score of 74%."
     ],
-    tags: ["Big Data", "Apache Spark", "Hadoop", "Hive", "Cassandra", "MySQL"],
+    tags: ["Big Data", "Apache Spark", "Hadoop", "Hive", "Cassandra", "MySQL", "NoSQL", "Statistics", "Machine Learning", "Deep Learning", "Generative AI"],
   },
   {
     type: "work",
@@ -53,7 +53,7 @@ const history: TimelineItem[] = [
       "Queried, validated, and analyzed production data pipelines using SQL/DMQuery to generate key insights.",
       "Worked closely with international project managers to design client-specific report formats and troubleshoot live system bugs."
     ],
-    tags: ["IBM SPSS Dimensions", "SQL", "DMQuery", "Data Validation", "Survey Engineering"],
+    tags: ["Excel", "Python", "Pandas", "IBM SPSS Dimensions", "SQL", "DMQuery", "Data Validation", "Data Analysis"],
   },
   {
     type: "education",
@@ -65,26 +65,26 @@ const history: TimelineItem[] = [
       "Built a solid grounding in core computer science disciplines: Data Structures, Algorithms, Operating Systems, and DBMS.",
       "Graduated with a cumulative GPA of 8.11 / 71.93%."
     ],
-    tags: ["Computer Engineering", "Data Structures", "Algorithms", "Databases", "C/C++", "Java"],
+    tags: ["Computer Engineering", "Data Structures", "Algorithms", "Databases", "C/C++", "Python"],
   },
-  {
-    type: "education",
-    period: "2016 - 2018",
-    title: "HSC (Higher Secondary Certificate)",
-    company: "CKT College (Maharashtra Board)",
-    location: "Navi Mumbai, India",
-    description: ["Focused on Science stream (Physics, Chemistry, Mathematics, and Electronics). Secured 58%."],
-    tags: ["Physics", "Chemistry", "Mathematics", "Electronics"],
-  },
-  {
-    type: "education",
-    period: "2016",
-    title: "SSC (Secondary School Certificate)",
-    company: "Carmel Convent High School (Maharashtra Board)",
-    location: "Navi Mumbai, India",
-    description: ["Graduated with an aggregate school score of 83%."],
-    tags: ["General Sciences", "Mathematics", "Languages"],
-  },
+  // {
+  //   type: "education",
+  //   period: "2016 - 2018",
+  //   title: "HSC (Higher Secondary Certificate)",
+  //   company: "CKT College (Maharashtra Board)",
+  //   location: "Navi Mumbai, India",
+  //   description: ["Focused on Science stream (Physics, Chemistry, Mathematics, and Computer Science)."],
+  //   tags: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
+  // },
+  // {
+  //   type: "education",
+  //   period: "2016",
+  //   title: "SSC (Secondary School Certificate)",
+  //   company: "Carmel Convent High School (Maharashtra Board)",
+  //   location: "Navi Mumbai, India",
+  //   description: ["Graduated with an aggregate school score of 83%."],
+  //   tags: ["General Sciences", "Mathematics", "Languages"],
+  // },
 ];
 
 export default function Experience() {
@@ -94,7 +94,7 @@ export default function Experience() {
       <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-brand-500/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
-        
+
         {/* Header */}
         <div className="flex flex-col items-center text-center gap-4 mb-16">
           <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
@@ -111,10 +111,10 @@ export default function Experience() {
 
         {/* Vertical Timeline container */}
         <div className="relative border-l-2 border-brand-500/20 dark:border-brand-500/10 ml-4 md:ml-6 pl-8 md:pl-10 space-y-12">
-          
+
           {history.map((role, index) => (
             <div key={index} className="relative group">
-              
+
               {/* Central Timeline Point Node */}
               <div className="absolute -left-[45px] md:-left-[53px] top-1.5 p-2 rounded-full bg-background border-2 border-brand-500 text-brand-500 shadow-md group-hover:scale-115 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
                 {role.type === "work" ? (
@@ -126,7 +126,7 @@ export default function Experience() {
 
               {/* Timeline Card */}
               <div className="group relative p-6 md:p-8 rounded-3xl glassmorphism border border-card-border shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-brand-500/30">
-                
+
                 {/* Visual Glow Gradient Accent */}
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-500 to-purple-500 rounded-t-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -140,7 +140,7 @@ export default function Experience() {
                       {role.company}
                     </span>
                   </div>
-                  
+
                   {/* Period tag */}
                   <span className="inline-flex items-center gap-1.5 self-start md:self-center px-3 py-1 rounded-full text-xs font-bold bg-brand-500/10 border border-brand-500/15 text-brand-500 tracking-wider">
                     <Calendar className="w-3.5 h-3.5" />
