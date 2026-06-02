@@ -101,11 +101,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-zinc-50/95 dark:bg-black/95 backdrop-blur-md py-4 shadow-lg"
-          : "bg-transparent py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-zinc-50/95 dark:bg-black/95 backdrop-blur-md py-4 shadow-lg"
+        : "bg-transparent py-6"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
@@ -118,7 +117,7 @@ export default function Navbar() {
             <Cpu className="w-5 h-5 text-brand-500" />
           </div>
           <span>
-            Ishaan<span className="text-brand-500 font-semibold">.dev</span>
+            IshaanSD<span className="text-brand-500 font-semibold">.work</span>
           </span>
         </a>
 
@@ -129,11 +128,10 @@ export default function Navbar() {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
-                activeSection === item.id
-                  ? "text-brand-500"
-                  : "text-zinc-600 dark:text-zinc-300 hover:text-foreground"
-              }`}
+              className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${activeSection === item.id
+                ? "text-brand-500"
+                : "text-zinc-600 dark:text-zinc-300 hover:text-foreground"
+                }`}
             >
               {activeSection === item.id && (
                 <span className="absolute inset-0 bg-brand-500/10 rounded-full -z-10 animate-fade-in" />
@@ -199,11 +197,10 @@ export default function Navbar() {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className={`text-base font-semibold py-2 px-4 rounded-xl transition-all duration-300 ${
-                activeSection === item.id
-                  ? "text-brand-500 bg-brand-500/10"
-                  : "text-zinc-600 dark:text-zinc-300 hover:text-foreground"
-              }`}
+              className={`text-base font-semibold py-2 px-4 rounded-xl transition-all duration-300 ${activeSection === item.id
+                ? "text-brand-500 bg-brand-500/10"
+                : "text-zinc-600 dark:text-zinc-300 hover:text-foreground"
+                }`}
             >
               {item.label}
             </a>
