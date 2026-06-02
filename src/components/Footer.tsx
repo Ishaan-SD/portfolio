@@ -50,11 +50,11 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-card-border/60 bg-zinc-100/50 dark:bg-black/20 py-16 relative">
+    <footer className="bg-zinc-100/50 dark:bg-black/20 py-16 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col items-center gap-10">
 
         {/* Row 1: Logo & Scroll to Top */}
-        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-card-border/40">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-6 pb-8">
 
           {/* Logo brand */}
           <a
