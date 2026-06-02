@@ -68,10 +68,36 @@ body {
 /* Glassmorphism utility */
 .glassmorphism {
   background: var(--card-bg);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
   border: 1px solid var(--card-border);
 }
+
+/* Heavy Glassmorphism for Navbar & Mobile Menu to prevent reading underlying text */
+.navbar-glass {
+  background-color: rgba(252, 252, 253, 0.92);
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
+}
+
+.dark .navbar-glass {
+  background-color: rgba(3, 3, 3, 0.92);
+  backdrop-filter: blur(64px);
+  -webkit-backdrop-filter: blur(64px);
+}
+
+.mobile-menu-glass {
+  background-color: rgba(252, 252, 253, 0.96);
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(80px);
+}
+
+.dark .mobile-menu-glass {
+  background-color: rgba(3, 3, 3, 0.96);
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(80px);
+}
+
 
 /* Glow Effect */
 .glow-effect {
