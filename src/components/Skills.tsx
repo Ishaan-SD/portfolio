@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Code2, Layout, Server, Cpu, Database, Smartphone, GitBranch, ShieldCheck, Sparkles } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import SkillCloud from "./SkillCloud";
+import TextScramble from "./TextScramble";
 
 interface Skill {
   name: string;
@@ -136,42 +138,53 @@ export default function Skills() {
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[350px] h-[350px] rounded-full bg-brand-500/5 blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column (Sticky info + 3D Skill Cloud) */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left gap-8 lg:sticky lg:top-28">
+            
+            {/* Header */}
+            <ScrollReveal variant="slide-up" duration={700}>
+              <div className="flex flex-col items-center lg:items-start gap-4">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
+                  <TextScramble text="Technical Stack" />
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+                  <TextScramble text="My Tech Ecosystem" />
+                </h2>
+                <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-md">
+                  A curated selection of core languages, distributed processing frameworks, and ML/AI toolsets I leverage to engineer robust intelligence systems.
+                </p>
+              </div>
+            </ScrollReveal>
 
-        {/* Header */}
-        <ScrollReveal variant="slide-up" duration={700}>
-          <div className="flex flex-col items-center text-center gap-4 mb-16">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
-              Technical Stack
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              My Tech Ecosystem
-            </h2>
-            <p className="max-w-xl text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-              A curated selection of core languages, distributed processing frameworks, and ML/AI toolsets I leverage to engineer robust intelligence systems.
-            </p>
+            {/* Filters bar */}
+            <ScrollReveal variant="slide-up" delay={100} duration={700} className="w-full">
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2">
+                {filterOptions.map((opt) => (
+                  <button
+                    key={opt}
+                    onClick={() => setActiveFilter(opt)}
+                    className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all duration-300 cursor-pointer ${
+                      activeFilter === opt
+                        ? "bg-brand-600 text-white shadow-md shadow-brand-500/20"
+                        : "glassmorphism hover:bg-black/5 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300"
+                    }`}
+                  >
+                    {opt}
+                  </button>
+                ))}
+              </div>
+            </ScrollReveal>
+
+            {/* 3D Orbiting Cloud */}
+            <ScrollReveal variant="slide-up" delay={150} duration={800} className="w-full">
+              <SkillCloud />
+            </ScrollReveal>
           </div>
-        </ScrollReveal>
 
-        {/* Filters bar */}
-        <ScrollReveal variant="slide-up" delay={100} duration={700}>
-          <div className="flex justify-center items-center gap-2 flex-wrap mb-12">
-            {filterOptions.map((opt) => (
-              <button
-                key={opt}
-                onClick={() => setActiveFilter(opt)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${activeFilter === opt
-                    ? "bg-brand-600 text-white shadow-md shadow-brand-500/20"
-                    : "glassmorphism hover:bg-black/5 dark:hover:bg-white/5 text-zinc-700 dark:text-zinc-300"
-                  }`}
-              >
-                {opt}
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 min-h-[200px]">
+          {/* Right Column (Flip Card Grid) */}
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 w-full min-h-[400px]">
           {filteredSkills.map((skill, index) => {
             const Icon = skill.icon;
             return (
@@ -245,8 +258,9 @@ export default function Skills() {
               </ScrollReveal>
             );
           })}
-        </div>
+          </div>
 
+        </div>
       </div>
     </section>
   );

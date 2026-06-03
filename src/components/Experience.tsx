@@ -3,6 +3,7 @@
 import React from "react";
 import { Briefcase, Calendar, MapPin, Sparkles, GraduationCap } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import TextScramble from "./TextScramble";
 
 interface TimelineItem {
   type: "work" | "education";
@@ -83,10 +84,10 @@ export default function Experience() {
           <div className="flex flex-col items-center text-center gap-4 mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              My Background
+              <TextScramble text="My Background" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Professional Experience
+              <TextScramble text="Professional Experience" />
             </h2>
             <p className="max-w-lg text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
               A linear timeline of my technical career history, detailing critical milestones, creative roles, and technologies deployed.

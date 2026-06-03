@@ -5,6 +5,19 @@ import { ArrowRight, Code, Sparkles, Terminal } from "lucide-react";
 
 const words = ["distributed", "automated", "intelligent", "scalable"];
 
+let globalAudioCtx: AudioContext | null = null;
+
+const getAudioContext = () => {
+  if (typeof window === "undefined") return null;
+  if (!globalAudioCtx) {
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    if (AudioContextClass) {
+      globalAudioCtx = new AudioContextClass();
+    }
+  }
+  return globalAudioCtx;
+};
+
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
@@ -33,9 +46,11 @@ export default function Hero() {
   const playTerminalSound = (type: "click" | "enter" | "error" | "clear") => {
     if (typeof window === "undefined") return;
     try {
-      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
-      if (!AudioContextClass) return;
-      const ctx = new AudioContextClass();
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      if (ctx.state === "suspended") {
+        ctx.resume();
+      }
       
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();

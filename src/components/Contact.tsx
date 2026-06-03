@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Mail, MapPin, Phone, CheckCircle2, Sparkles, Send, Loader2, AlertCircle } from "lucide-react";
 import { sendEmail } from "../app/actions";
 import ScrollReveal from "./ScrollReveal";
+import TextScramble from "./TextScramble";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -173,10 +174,10 @@ export default function Contact() {
           <div className="flex flex-col items-center text-center gap-4 mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              Connect
+              <TextScramble text="Connect" />
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Get In Touch
+              <TextScramble text="Get In Touch" />
             </h2>
             <p className="max-w-md text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
               Have a project in mind, a freelance inquiry, or just want to swap ideas? Drop a line and let&apos;s make it happen.

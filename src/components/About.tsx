@@ -3,6 +3,7 @@
 import React from "react";
 import { Briefcase, FolderGit, Flame, Users, Sparkles, BookOpen } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import TextScramble from "./TextScramble";
 
 interface StatItem {
   icon: React.ComponentType<{ className?: string }>;
@@ -60,7 +61,7 @@ export default function About() {
           >
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
               <Sparkles className="w-3.5 h-3.5" />
-              My Journey
+              <TextScramble text="My Journey" />
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
