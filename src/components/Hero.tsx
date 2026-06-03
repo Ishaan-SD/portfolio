@@ -27,7 +27,7 @@ export default function Hero() {
     },
   ]);
 
-  const terminalBottomRef = useRef<HTMLDivElement>(null);
+  const terminalContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const playTerminalSound = (type: "click" | "enter" | "error" | "clear") => {
@@ -88,10 +88,13 @@ export default function Hero() {
     } catch (_) {}
   };
 
-  // Auto scroll terminal log to bottom
+  // Auto scroll terminal log to bottom of its container (preventing window scrolling)
   useEffect(() => {
-    if (activeTab === "terminal" && terminalBottomRef.current) {
-      terminalBottomRef.current.scrollIntoView({ behavior: "smooth" });
+    if (activeTab === "terminal" && terminalContainerRef.current) {
+      const container = terminalContainerRef.current;
+      requestAnimationFrame(() => {
+        container.scrollTop = container.scrollHeight;
+      });
     }
   }, [terminalLogs, activeTab]);
 
@@ -350,7 +353,7 @@ export default function Hero() {
                 onClick={focusTerminalInput}
                 className="flex-1 py-4 font-mono text-xs leading-normal overflow-y-auto text-left flex flex-col justify-between cursor-text select-text scrollbar-thin"
               >
-                <div className="space-y-3 overflow-y-auto flex-1 pr-1">
+                <div ref={terminalContainerRef} className="space-y-3 overflow-y-auto flex-1 pr-1">
                   {terminalLogs.map((log, index) => (
                     <div key={index} className="space-y-1">
                       {log.command !== "" && (
@@ -362,7 +365,6 @@ export default function Hero() {
                       <div>{log.output}</div>
                     </div>
                   ))}
-                  <div ref={terminalBottomRef} />
                 </div>
 
                 <form onSubmit={handleTerminalSubmit} className="flex items-center gap-1.5 border-t border-card-border/40 pt-3 mt-2">
