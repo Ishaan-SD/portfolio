@@ -19,7 +19,7 @@ export default function Hero() {
       command: "",
       output: (
         <span className="text-zinc-500 dark:text-zinc-400">
-          Welcome to Ishaan&apos;s Interactive Shell! 💻
+          Welcome to Ishaan&apos;s Interactive Shell!
           <br />
           Type <span className="text-brand-500 font-bold">help</span> to view available commands.
         </span>
