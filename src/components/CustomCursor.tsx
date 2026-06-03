@@ -26,14 +26,15 @@ export default function CustomCursor() {
     const onMouseUp = () => setIsClicked(false);
 
     const onMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+
       const isClickable =
         target.tagName === "A" ||
         target.tagName === "BUTTON" ||
-        target.closest("a") ||
-        target.closest("button") ||
-        target.getAttribute("role") === "button" ||
-        target.classList.contains("cursor-pointer");
+        (target.closest && (target.closest("a") || target.closest("button"))) ||
+        (target.getAttribute && target.getAttribute("role") === "button") ||
+        (target.classList && target.classList.contains("cursor-pointer"));
 
       setIsHovered(!!isClickable);
     };
@@ -80,24 +81,28 @@ export default function CustomCursor() {
     <>
       {/* Inner Dot */}
       <div
-        className={`fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-transform duration-100 ease-out bg-brand-500`}
+        className={`fixed top-0 left-0 w-2 h-2 rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-colors duration-200 ${
+          isHovered ? "bg-pink-500" : "bg-brand-500"
+        }`}
         style={{
           transform: `translate3d(${position.x}px, ${position.y}px, 0) ${
-            isClicked ? "scale(0.5)" : isHovered ? "scale(1.5) bg-pink-500" : "scale(1)"
+            isClicked ? "scale(0.5)" : isHovered ? "scale(1.5)" : "scale(1)"
           }`,
         }}
       />
       {/* Outer Spring Circle Follower */}
       <div
-        className={`fixed top-0 left-0 w-9 h-9 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
+        className={`fixed top-0 left-0 w-9 h-9 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-all duration-300 border ${
           isClicked
-            ? "border-pink-500 bg-pink-500/10 scale-75"
+            ? "border-pink-500 bg-pink-500/10"
             : isHovered
-            ? "border-brand-500 bg-brand-500/5 scale-150"
+            ? "border-brand-500 bg-brand-500/5"
             : "border-brand-500/40"
-        } border`}
+        }`}
         style={{
-          transform: `translate3d(${trailPosition.x}px, ${trailPosition.y}px, 0)`,
+          transform: `translate3d(${trailPosition.x}px, ${trailPosition.y}px, 0) ${
+            isClicked ? "scale(0.75)" : isHovered ? "scale(1.4)" : "scale(1)"
+          }`,
         }}
       />
     </>
