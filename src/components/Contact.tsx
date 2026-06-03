@@ -45,6 +45,58 @@ export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const [tiltStyle, setTiltStyle] = useState<React.CSSProperties>({
+    transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
+    transition: "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)",
+  });
+  const [glareStyle, setGlareStyle] = useState<React.CSSProperties>({
+    opacity: 0,
+    background: "radial-gradient(circle at 0px 0px, rgba(16, 185, 129, 0.06), transparent 70%)",
+    transition: "opacity 0.5s ease",
+  });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const xc = rect.width / 2;
+    const yc = rect.height / 2;
+    const dx = x - xc;
+    const dy = y - yc;
+
+    const maxTilt = 8;
+    const tiltX = -(dy / yc) * maxTilt;
+    const tiltY = (dx / xc) * maxTilt;
+
+    setTiltStyle({
+      transform: `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`,
+      transition: "transform 0.1s ease",
+    });
+
+    setGlareStyle({
+      opacity: 1,
+      background: `radial-gradient(circle at ${x}px ${y}px, rgba(16, 185, 129, 0.06), transparent 70%)`,
+      transition: "opacity 0.1s ease",
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTiltStyle({
+      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
+      transition: "transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)",
+    });
+    setGlareStyle({
+      opacity: 0,
+      background: "radial-gradient(circle at 0px 0px, rgba(16, 185, 129, 0.06), transparent 70%)",
+      transition: "opacity 0.5s ease",
+    });
+  };
+
   const validate = (): boolean => {
     const tempErrors: FormErrors = {};
     let isValid = true;
@@ -211,9 +263,19 @@ export default function Contact() {
             duration={800}
             className="lg:col-span-7 w-full"
           >
-            <div className="p-6 sm:p-8 rounded-3xl glassmorphism border border-card-border shadow-xl min-h-[440px] flex flex-col justify-center relative">
-              
-              {isSubmitted ? (
+            <div
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={tiltStyle}
+              className="p-6 sm:p-8 rounded-3xl glassmorphism border border-card-border shadow-xl min-h-[440px] flex flex-col justify-center relative overflow-hidden"
+            >
+              <div
+                className="absolute inset-0 pointer-events-none z-0"
+                style={glareStyle}
+              />
+              <div className="relative z-10 w-full">
+                {isSubmitted ? (
                 // Delighful Success Card Message
                 <div className="text-center flex flex-col items-center justify-center gap-5 py-8 animate-fade-in">
                   <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 rounded-full animate-bounce">
@@ -334,6 +396,7 @@ export default function Contact() {
                   </button>
                 </form>
               )}
+              </div>
 
             </div>
           </ScrollReveal>

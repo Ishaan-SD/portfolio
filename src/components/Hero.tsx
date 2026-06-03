@@ -104,13 +104,15 @@ export default function Hero() {
 
   const handleTerminalSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const cmd = terminalInput.trim().toLowerCase();
-    if (!cmd) return;
+    const parts = terminalInput.trim().split(/\s+/);
+    const mainCmd = parts[0]?.toLowerCase() || "";
+    const arg = parts[1]?.toLowerCase() || "";
+    if (!mainCmd) return;
 
     let output: React.ReactNode;
     let soundToPlay: "enter" | "error" | "clear" = "enter";
 
-    switch (cmd) {
+    switch (mainCmd) {
       case "help":
         output = (
           <div className="space-y-1 text-zinc-500 dark:text-zinc-400 text-left">
@@ -119,6 +121,8 @@ export default function Hero() {
             <p>  <span className="text-brand-500 font-bold">skills</span>   - Primary technologies stack</p>
             <p>  <span className="text-brand-500 font-bold">projects</span> - Highlighted creations</p>
             <p>  <span className="text-brand-500 font-bold">contact</span>  - Connect pathways</p>
+            <p>  <span className="text-brand-500 font-bold">theme</span>    - Toggle dark/light theme (or: theme light/dark)</p>
+            <p>  <span className="text-brand-500 font-bold">matrix</span>   - Trigger retro code rain overlay</p>
             <p>  <span className="text-brand-500 font-bold">clear</span>    - Clear console logs</p>
           </div>
         );
@@ -154,6 +158,39 @@ export default function Hero() {
           </div>
         );
         break;
+      case "theme": {
+        let targetTheme: "light" | "dark";
+        if (arg === "light" || arg === "dark") {
+          targetTheme = arg;
+        } else {
+          const isDark = document.documentElement.classList.contains("dark");
+          targetTheme = isDark ? "light" : "dark";
+        }
+
+        if (targetTheme === "dark") {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+        window.dispatchEvent(new Event("themechange"));
+
+        output = (
+          <p className="text-zinc-500 dark:text-zinc-400 text-left">
+            Theme updated to <span className="text-brand-500 font-bold">{targetTheme}</span> mode.
+          </p>
+        );
+        break;
+      }
+      case "matrix":
+        window.dispatchEvent(new CustomEvent("toggle-matrix", { detail: { active: true } }));
+        output = (
+          <p className="text-zinc-500 dark:text-zinc-400 text-left">
+            Initializing Matrix Rain. <span className="text-brand-500">Click anywhere to exit.</span>
+          </p>
+        );
+        break;
       case "clear":
         setTerminalLogs([]);
         setTerminalInput("");
@@ -162,7 +199,7 @@ export default function Hero() {
       default:
         output = (
           <p className="text-red-500 text-left">
-            Command not recognized: &apos;{cmd}&apos;. Type &apos;help&apos; for list.
+            Command not recognized: &apos;{terminalInput}&apos;. Type &apos;help&apos; for list.
           </p>
         );
         soundToPlay = "error";
