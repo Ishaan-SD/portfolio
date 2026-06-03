@@ -30,6 +30,64 @@ export default function Hero() {
   const terminalBottomRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const playTerminalSound = (type: "click" | "enter" | "error" | "clear") => {
+    if (typeof window === "undefined") return;
+    try {
+      const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+      if (!AudioContextClass) return;
+      const ctx = new AudioContextClass();
+      
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      
+      const now = ctx.currentTime;
+      
+      if (type === "click") {
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(800, now);
+        osc.frequency.exponentialRampToValueAtTime(100, now + 0.04);
+        
+        gain.gain.setValueAtTime(0.012, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        
+        osc.start(now);
+        osc.stop(now + 0.04);
+      } else if (type === "enter") {
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(500, now);
+        osc.frequency.setValueAtTime(750, now + 0.04);
+        
+        gain.gain.setValueAtTime(0.015, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        
+        osc.start(now);
+        osc.stop(now + 0.1);
+      } else if (type === "error") {
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(140, now);
+        
+        gain.gain.setValueAtTime(0.018, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        
+        osc.start(now);
+        osc.stop(now + 0.15);
+      } else if (type === "clear") {
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(900, now);
+        osc.frequency.exponentialRampToValueAtTime(250, now + 0.2);
+        
+        gain.gain.setValueAtTime(0.015, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+        
+        osc.start(now);
+        osc.stop(now + 0.2);
+      }
+    } catch (_) {}
+  };
+
   // Auto scroll terminal log to bottom
   useEffect(() => {
     if (activeTab === "terminal" && terminalBottomRef.current) {
@@ -47,6 +105,7 @@ export default function Hero() {
     if (!cmd) return;
 
     let output: React.ReactNode;
+    let soundToPlay: "enter" | "error" | "clear" = "enter";
 
     switch (cmd) {
       case "help":
@@ -95,6 +154,7 @@ export default function Hero() {
       case "clear":
         setTerminalLogs([]);
         setTerminalInput("");
+        playTerminalSound("clear");
         return;
       default:
         output = (
@@ -102,10 +162,12 @@ export default function Hero() {
             Command not recognized: &apos;{cmd}&apos;. Type &apos;help&apos; for list.
           </p>
         );
+        soundToPlay = "error";
     }
 
     setTerminalLogs((prev) => [...prev, { command: terminalInput, output }]);
     setTerminalInput("");
+    playTerminalSound(soundToPlay);
   };
 
   // Typist animation logic
@@ -309,7 +371,10 @@ export default function Hero() {
                     ref={inputRef}
                     type="text"
                     value={terminalInput}
-                    onChange={(e) => setTerminalInput(e.target.value)}
+                    onChange={(e) => {
+                      setTerminalInput(e.target.value);
+                      playTerminalSound("click");
+                    }}
                     className="flex-1 bg-transparent border-none outline-none text-foreground caret-brand-500 font-mono text-xs p-0 focus:ring-0 focus:border-none"
                     placeholder="type command (e.g. help)..."
                     autoComplete="off"
