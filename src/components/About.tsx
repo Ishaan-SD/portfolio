@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Briefcase, FolderGit, Flame, Users, Sparkles, BookOpen } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 interface StatItem {
   icon: React.ComponentType<{ className?: string }>;
@@ -52,7 +53,11 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
           
           {/* Left Column: Narrative Copy */}
-          <div className="lg:col-span-6 flex flex-col items-start gap-6 text-left">
+          <ScrollReveal
+            variant="slide-up"
+            duration={800}
+            className="lg:col-span-6 flex flex-col items-start gap-6 text-left"
+          >
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
               <Sparkles className="w-3.5 h-3.5" />
               My Journey
@@ -73,36 +78,42 @@ export default function About() {
                 Whether I am fine-tuning transformer models like DistilBERT, building complex automation engines in Python, or designing large-scale test pipelines, I strive for high performance, accuracy, and clean code architecture.
               </p>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Statistics Grid */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             {stats.map((stat, idx) => {
               const Icon = stat.icon;
               return (
-                <div
+                <ScrollReveal
                   key={idx}
-                  className={`group relative p-6 rounded-2xl glassmorphism border border-card-border shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${stat.glowColor}`}
+                  variant="slide-up"
+                  delay={idx * 100}
+                  duration={700}
                 >
-                  {/* Top line indicator with stat brand color */}
-                  <div className="absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-brand-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="p-3 rounded-xl bg-brand-500/10 border border-brand-500/10 text-brand-500 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-5 h-5" />
+                  <div
+                    className={`group relative p-6 rounded-2xl glassmorphism border border-card-border shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${stat.glowColor} h-full`}
+                  >
+                    {/* Top line indicator with stat brand color */}
+                    <div className="absolute top-0 left-6 right-6 h-0.5 bg-gradient-to-r from-transparent via-brand-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="p-3 rounded-xl bg-brand-500/10 border border-brand-500/10 text-brand-500 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-3xl font-bold tracking-tight text-foreground">
+                        {stat.value}
+                      </span>
                     </div>
-                    <span className="text-3xl font-bold tracking-tight text-foreground">
-                      {stat.value}
-                    </span>
+                    
+                    <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-200 mb-1 tracking-wide">
+                      {stat.label}
+                    </h3>
+                    <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-normal">
+                      {stat.description}
+                    </p>
                   </div>
-                  
-                  <h3 className="text-sm font-bold text-zinc-800 dark:text-zinc-200 mb-1 tracking-wide">
-                    {stat.label}
-                  </h3>
-                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-normal">
-                    {stat.description}
-                  </p>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>

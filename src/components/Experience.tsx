@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Briefcase, Calendar, MapPin, Sparkles, GraduationCap } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 interface TimelineItem {
   type: "work" | "education";
@@ -67,24 +68,6 @@ const history: TimelineItem[] = [
     ],
     tags: ["Computer Engineering", "Data Structures", "Algorithms", "Databases", "C/C++", "Python"],
   },
-  // {
-  //   type: "education",
-  //   period: "2016 - 2018",
-  //   title: "HSC (Higher Secondary Certificate)",
-  //   company: "CKT College (Maharashtra Board)",
-  //   location: "Navi Mumbai, India",
-  //   description: ["Focused on Science stream (Physics, Chemistry, Mathematics, and Computer Science)."],
-  //   tags: ["Physics", "Chemistry", "Mathematics", "Computer Science"],
-  // },
-  // {
-  //   type: "education",
-  //   period: "2016",
-  //   title: "SSC (Secondary School Certificate)",
-  //   company: "Carmel Convent High School (Maharashtra Board)",
-  //   location: "Navi Mumbai, India",
-  //   description: ["Graduated with an aggregate school score of 83%."],
-  //   tags: ["General Sciences", "Mathematics", "Languages"],
-  // },
 ];
 
 export default function Experience() {
@@ -96,25 +79,32 @@ export default function Experience() {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
-            My Background
+        <ScrollReveal variant="slide-up" duration={700}>
+          <div className="flex flex-col items-center text-center gap-4 mb-16">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
+              <Sparkles className="w-3.5 h-3.5" />
+              My Background
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Professional Experience
+            </h2>
+            <p className="max-w-lg text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+              A linear timeline of my technical career history, detailing critical milestones, creative roles, and technologies deployed.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Professional Experience
-          </h2>
-          <p className="max-w-lg text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            A linear timeline of my technical career history, detailing critical milestones, creative roles, and technologies deployed.
-          </p>
-        </div>
+        </ScrollReveal>
 
         {/* Vertical Timeline container */}
         <div className="relative border-l-2 border-brand-500/20 dark:border-brand-500/10 ml-4 md:ml-6 pl-8 md:pl-10 space-y-12">
 
           {history.map((role, index) => (
-            <div key={index} className="relative group">
-
+            <ScrollReveal
+              key={index}
+              variant="slide-up"
+              delay={index * 120}
+              duration={700}
+              className="relative group"
+            >
               {/* Central Timeline Point Node */}
               <div className="absolute -left-[45px] md:-left-[53px] top-1.5 p-2 rounded-full bg-background border-2 border-brand-500 text-brand-500 shadow-md group-hover:scale-115 group-hover:bg-brand-500 group-hover:text-white transition-all duration-300">
                 {role.type === "work" ? (
@@ -176,7 +166,7 @@ export default function Experience() {
                 </div>
 
               </div>
-            </div>
+            </ScrollReveal>
           ))}
 
         </div>

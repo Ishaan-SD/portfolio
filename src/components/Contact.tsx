@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Mail, MapPin, Phone, CheckCircle2, Sparkles, Send, Loader2, AlertCircle } from "lucide-react";
 import { sendEmail } from "../app/actions";
+import ScrollReveal from "./ScrollReveal";
 
 const GithubIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -116,23 +117,29 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col items-center text-center gap-4 mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
-            <Sparkles className="w-3.5 h-3.5" />
-            Connect
+        <ScrollReveal variant="slide-up" duration={700}>
+          <div className="flex flex-col items-center text-center gap-4 mb-16">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-xs font-bold tracking-wider text-brand-500 uppercase">
+              <Sparkles className="w-3.5 h-3.5" />
+              Connect
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Get In Touch
+            </h2>
+            <p className="max-w-md text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
+              Have a project in mind, a freelance inquiry, or just want to swap ideas? Drop a line and let&apos;s make it happen.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Get In Touch
-          </h2>
-          <p className="max-w-md text-sm sm:text-base text-zinc-600 dark:text-zinc-400">
-            Have a project in mind, a freelance inquiry, or just want to swap ideas? Drop a line and let&apos;s make it happen.
-          </p>
-        </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
           
           {/* Left Column: Direct Info Details */}
-          <div className="lg:col-span-5 flex flex-col gap-8 text-left h-full justify-between">
+          <ScrollReveal
+            variant="slide-right"
+            duration={800}
+            className="lg:col-span-5 flex flex-col gap-8 text-left h-full justify-between"
+          >
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-foreground">
                 Let&apos;s build something exceptional.
@@ -196,10 +203,14 @@ export default function Contact() {
                 <LinkedinIcon className="w-5 h-5" />
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right Column: Interactive Form portal */}
-          <div className="lg:col-span-7 w-full">
+          <ScrollReveal
+            variant="slide-left"
+            duration={800}
+            className="lg:col-span-7 w-full"
+          >
             <div className="p-6 sm:p-8 rounded-3xl glassmorphism border border-card-border shadow-xl min-h-[440px] flex flex-col justify-center relative">
               
               {isSubmitted ? (
@@ -325,7 +336,7 @@ export default function Contact() {
               )}
 
             </div>
-          </div>
+          </ScrollReveal>
 
         </div>
       </div>
