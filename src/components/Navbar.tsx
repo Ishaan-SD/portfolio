@@ -22,6 +22,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   // Sync theme state with DOM class on mount
   useEffect(() => {
@@ -32,6 +33,11 @@ export default function Navbar() {
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+      
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        setScrollProgress((window.scrollY / totalHeight) * 100);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -106,6 +112,11 @@ export default function Navbar() {
         : "bg-transparent py-6"
         }`}
     >
+      {/* Scroll Progress Bar Indicator */}
+      <div
+        className="absolute top-0 left-0 h-[3px] bg-gradient-to-r from-brand-500 via-purple-500 to-pink-500 transition-all duration-100 ease-out z-50"
+        style={{ width: `${scrollProgress}%` }}
+      />
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <a

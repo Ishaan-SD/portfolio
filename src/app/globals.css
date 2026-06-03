@@ -151,3 +151,11 @@ body {
 .radial-bg {
   background-image: var(--radial-gradient);
 }
+
+/* Custom cursor default hide on pointer-fine screens */
+@media (pointer: fine) {
+  body, a, button, [role="button"], .cursor-pointer {
+    cursor: none !important;
+  }
+}
+
