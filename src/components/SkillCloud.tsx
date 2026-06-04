@@ -168,7 +168,7 @@ export default function SkillCloud() {
         const dragScale = 0.005;
         tags.forEach((tag) => {
           rotatePointsY(tag, dx * dragScale);
-          rotatePointsX(tag, -dy * dragScale);
+          rotatePointsX(tag, dy * dragScale);
         });
 
         startX = x;
@@ -176,7 +176,7 @@ export default function SkillCloud() {
       } else {
         // Influence speed depending on hover offset
         targetAngleY = (x - cxLocal) * 0.00004;
-        targetAngleX = -(y - cyLocal) * 0.00004;
+        targetAngleX = (y - cyLocal) * 0.00004;
 
         // Check if mouse is hovering over any tag
         let matchedTag: string | null = null;
@@ -231,13 +231,14 @@ export default function SkillCloud() {
       const y = touch.clientY - rect.top;
 
       if (isDragging) {
+        if (e.cancelable) e.preventDefault();
         const dx = x - startX;
         const dy = y - startY;
         
         const dragScale = 0.008;
         tags.forEach((tag) => {
           rotatePointsY(tag, dx * dragScale);
-          rotatePointsX(tag, -dy * dragScale);
+          rotatePointsX(tag, dy * dragScale);
         });
 
         startX = x;
@@ -279,7 +280,7 @@ export default function SkillCloud() {
     >
       <canvas
         ref={canvasRef}
-        className="cursor-grab active:cursor-grabbing max-w-full"
+        className="cursor-grab active:cursor-grabbing max-w-full touch-none"
       />
     </div>
   );
