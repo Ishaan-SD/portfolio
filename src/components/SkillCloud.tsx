@@ -247,6 +247,7 @@ export default function SkillCloud() {
     };
 
     const handleTouchStart = (e: TouchEvent) => {
+      if (e.cancelable) e.preventDefault();
       const touch = e.touches[0];
       if (!touch) return;
       isDragging = true;
@@ -255,8 +256,8 @@ export default function SkillCloud() {
       startY = touch.clientY - rect.top;
     };
 
-    canvas.addEventListener("touchmove", handleTouchMove);
-    canvas.addEventListener("touchstart", handleTouchStart);
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
     window.addEventListener("touchend", handleMouseUp);
 
     update();
